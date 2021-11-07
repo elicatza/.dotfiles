@@ -4,6 +4,12 @@
 "xbacklight -inc 5"
     XF86MonBrightnessUp
 
+"xbacklight -dec 1"
+    Shift + XF86MonBrightnessDown
+
+"xbacklight -inc 1"
+    Shift + XF86MonBrightnessUp
+
 "playerctl -p mpv previous"
     XF86AudioPrev
 
@@ -21,4 +27,10 @@
 
 "amixer set Master 5%+"
     XF86AudioRaiseVolume
+
+"amixer set Master 1%-"
+    Shift + XF86AudioLowerVolume
+
+"amixer set Master 1%+"
+    Shift + XF86AudioRaiseVolume
 
