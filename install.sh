@@ -12,6 +12,9 @@ ln -sf ${SCRIPT_DIR}/xinitrc ~/.xinitrc
 echo "Linking: ${SCRIPT_DIR}/zshrc with ~/.zshrc"
 ln -sf ${SCRIPT_DIR}/zshrc ~/.zshrc
 
+echo "Linking: ${SCRIPT_DIR}/xbindkeysrc with ~/.xbindkeysrc"
+ln -sf ${SCRIPT_DIR}/xbindkeysrc ~/.xbindkeysrc
+
 echo "Linking: ${SCRIPT_DIR}/config/alacritty/alacritty.yml with ~/.config/alacritty/alacritty.yml"
 ln -sf ${SCRIPT_DIR}/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 

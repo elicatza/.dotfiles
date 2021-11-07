@@ -34,4 +34,5 @@ fi
 
 
 picom &
+xbindkeys &
 exec bspwm
