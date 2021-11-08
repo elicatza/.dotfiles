@@ -31,6 +31,6 @@
 "amixer set Master 1%-"
     Shift + XF86AudioLowerVolume
 
-"amixer set Master 1%+"
+"amixer set Master 5%+"
     Shift + XF86AudioRaiseVolume
 
