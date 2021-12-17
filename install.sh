@@ -3,8 +3,8 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo $SCRIPT_DIR
 
-echo "Linking: ${SCRIPT_DIR}/tmux.conf with ~/.tmux.conf"
-ln -sf $SCRIPT_DIR/tmux.conf ~/.tmux.conf
+echo "Linking: ${SCRIPT_DIR}/config/tmux/tmux.conf with ~/.config/tmux/tmux.conf"
+ln -sf $SCRIPT_DIR/config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 
 echo "Linking: ${SCRIPT_DIR}/xinitrc with ~/.xinitrc"
 ln -sf ${SCRIPT_DIR}/xinitrc ~/.xinitrc

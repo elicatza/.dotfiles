@@ -1,11 +1,3 @@
-#
-# wm independent hotkeys
-#
-
-@0x1008ff4b
-    echo foo
-
-
 # terminal emulator
 mod3 + Return
 	alacritty
@@ -19,6 +11,10 @@ ctrl + Return
 # program launcher
 mod3 + @space
 	dmenu_run
+
+# Browser
+mod3 + b
+    firefox
 
 # make sxhkd reload its configuration files:
 mod3 + Escape
