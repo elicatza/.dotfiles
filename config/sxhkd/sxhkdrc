@@ -21,6 +21,20 @@ mod3 + Escape
 	pkill -USR1 -x sxhkd
 
 #
+# Tabbed
+#
+
+# Add focused window to a tabbed instance in given direction
+mod3 + shift + t; {h,j,k,l}
+    tabc.sh $(bspc query -N -n {west,south,north,east}) add $(bspc query -N -n focused)
+
+# Remove one tab from tabbed
+mod3 + shift + t; r
+    tabbed=$(bspc query -N -n focused); \
+    child=$(tabc.sh $tabbed list | head -n1); \
+    tabc.sh $tabbed remove $child
+
+#
 # bspwm hotkeys
 #
 
