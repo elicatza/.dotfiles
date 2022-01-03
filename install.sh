@@ -6,9 +6,15 @@ sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar"
 
 
 function link() {
-    local file_name="${1}"
-    local dot_path="${2}"
-    local sys_path="${3}"
+    if [ -z "${3}" ]; then
+        # no name arg given
+        local dot_path="${1}"
+        local sys_path="${2}"
+    else
+        local file_name="${1}"
+        local dot_path="${2}"
+        local sys_path="${3}"
+    fi
 
     printf "Linking: %s\n     To: %s\n\n" "${dot_path}${file_name}" "${sys_path}${file_name}"
     mkdir -p "${sys_path}"
@@ -76,17 +82,19 @@ if [[ " ${sync_list[@]} " =~ " nvim " ]]; then
     sys_path="${HOME}/.config/nvim/"
 
     link $file_name $dot_path $sys_path
+
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/nvim/lua/elicatza/"
+    sys_path="${HOME}/.config/nvim/lua/"
+
+    link $file_name $dot_path $sys_path
 fi
 
 # polybar
 if [[ " ${sync_list[@]} " =~ " polybar " ]]; then
-    file_name="config"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/polybar/"
-    sys_path="${HOME}/.config/polybar/"
-
-    link $file_name $dot_path $sys_path
-
-    file_name="launch.sh"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
