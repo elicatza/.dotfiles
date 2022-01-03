@@ -1,37 +1,110 @@
 #!/usr/bin/env bash
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-echo $SCRIPT_DIR
 
-echo "Linking: ${SCRIPT_DIR}/config/tmux/tmux.conf with ~/.config/tmux/tmux.conf"
-ln -sf $SCRIPT_DIR/config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar" "sxhkd" "X11")
 
-echo "Linking: ${SCRIPT_DIR}/xinitrc with ~/.xinitrc"
-ln -sf ${SCRIPT_DIR}/xinitrc ~/.xinitrc
 
-echo "Linking: ${SCRIPT_DIR}/zshrc with ~/.zshrc"
-ln -sf ${SCRIPT_DIR}/zshrc ~/.zshrc
+function link() {
+    local file_name="${1}"
+    local dot_path="${2}"
+    local sys_path="${3}"
 
-echo "Linking: ${SCRIPT_DIR}/xbindkeysrc with ~/.xbindkeysrc"
-ln -sf ${SCRIPT_DIR}/xbindkeysrc ~/.xbindkeysrc
+    printf "Linking: %s\n     To: %s\n\n" "${dot_path}${file_name}" "${sys_path}${file_name}"
+    mkdir -p "${sys_path}"
+    ln -sf "${dot_path}${file_name}" "${sys_path}${file_name}"
+}
 
-echo "Linking: ${SCRIPT_DIR}/config/alacritty/alacritty.yml with ~/.config/alacritty/alacritty.yml"
-ln -sf ${SCRIPT_DIR}/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+# tmux
+if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+    file_name="tmux.conf"
+    dot_path="${SCRIPT_DIR}/config/tmux/"
+    sys_path="${HOME}/.config/tmux/"
 
-echo "Linking: ${SCRIPT_DIR}/config/bspwm/bspwmrc with ~/.config/bspwm/bspwmrc"
-ln -sf ${SCRIPT_DIR}/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+    link $file_name $dot_path $sys_path
+fi
 
-echo "Linking: ${SCRIPT_DIR}/config/nvim/init.vim with ~/.config/nvim/init.vim"
-ln -sf ${SCRIPT_DIR}/config/nvim/init.vim ~/.config/nvim/init.vim
+# xinit
+if [[ " ${sync_list[@]} " =~ " xinit " ]]; then
+    file_name=".xinitrc"
+    dot_path="${SCRIPT_DIR}/"
+    sys_path="${HOME}/"
 
-echo "Linking: ${SCRIPT_DIR}/config/polybar/config with ~/.config/polybar/config"
-ln -sf ${SCRIPT_DIR}/config/polybar/config ~/.config/polybar/config
+    link $file_name $dot_path $sys_path
+fi
 
-echo "Linking: ${SCRIPT_DIR}/config/polybar/launch.sh with ~/.config/polybar/launch.sh"
-ln -sf ${SCRIPT_DIR}/config/polybar/launch.sh ~/.config/polybar/launch.sh
+# zsh
+if [[ " ${sync_list[@]} " =~ " zsh " ]]; then
+    file_name=".zshrc"
+    dot_path="${SCRIPT_DIR}/"
+    sys_path="${HOME}/"
 
-echo "Linking: ${SCRIPT_DIR}/config/sxhkd/sxhkdrc with ~/.config/sxhkd/sxhkdrc"
-ln -sf ${SCRIPT_DIR}/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+    link $file_name $dot_path $sys_path
+fi
 
-echo "Linking: ${SCRIPT_DIR}/config/X11/custom-dvorak-no with ~/.config/X11/custom-dvorak-no"
-ln -sf ${SCRIPT_DIR}/config/X11/custom-dvorak-no ~/.config/X11/custom-dvorak-no
+# xbindkeys
+if [[ " ${sync_list[@]} " =~ " xbindkeys " ]]; then
+    file_name=".xbindkeysrc"
+    dot_path="${SCRIPT_DIR}/"
+    sys_path="${HOME}/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# alacritty
+if [[ " ${sync_list[@]} " =~ " alacritty " ]]; then
+    file_name="alacritty.yml"
+    dot_path="${SCRIPT_DIR}/config/alacritty/"
+    sys_path="${HOME}/.config/alacritty/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# bspwm
+if [[ " ${sync_list[@]} " =~ " bspwm " ]]; then
+    file_name="bspwmrc"
+    dot_path="${SCRIPT_DIR}/config/bspwm/"
+    sys_path="${HOME}/.config/bspwm/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# nvim
+if [[ " ${sync_list[@]} " =~ " nvim " ]]; then
+    file_name="init.vim"
+    dot_path="${SCRIPT_DIR}/config/nvim/"
+    sys_path="${HOME}/.config/nvim/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# polybar
+if [[ " ${sync_list[@]} " =~ " polybar " ]]; then
+    file_name="config"
+    dot_path="${SCRIPT_DIR}/config/polybar/"
+    sys_path="${HOME}/.config/polybar/"
+
+    link $file_name $dot_path $sys_path
+
+    file_name="launch.sh"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# sxhkd
+if [[ " ${sync_list[@]} " =~ " sxhkd " ]]; then
+    file_name="sxhkdrc"
+    dot_path="${SCRIPT_DIR}/config/sxhkd/"
+    sys_path="${HOME}/.config/sxhkd/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# X11
+if [[ " ${sync_list[@]} " =~ " X11 " ]]; then
+    file_name="custom-dvorak-no"
+    dot_path="${SCRIPT_DIR}/config/X11/"
+    sys_path="${HOME}/.config/X11/"
+
+    link $file_name $dot_path $sys_path
+fi
