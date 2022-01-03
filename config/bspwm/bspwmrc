@@ -6,6 +6,9 @@ xbindkeys
 # feh --bg-fill --randomize ~/.local/share/feh-wallpapers/
 feh --bg-scale --no-fehbg --randomize ~/.local/share/feh-wallpapers/
 
+killall polybar
+$HOME/.config/polybar/launch.sh
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI VII 
@@ -28,4 +31,3 @@ bspc rule -a Evince desktop='^4' follow=on state=tiled
 bspc rule -a mpv desktop='^4' follow=on state=tiled
 bspc rule -a Sxiv desktop='^4' follow=on state=tiled
 
-$HOME/.config/polybar/launch.sh
