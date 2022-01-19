@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar" "sxhkd" "X11")
+sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar" "sxhkd" "X11" "neofetch")
 
 
 function link() {
@@ -113,6 +113,15 @@ if [[ " ${sync_list[@]} " =~ " X11 " ]]; then
     file_name="custom-dvorak-no"
     dot_path="${SCRIPT_DIR}/config/X11/"
     sys_path="${HOME}/.config/X11/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# neofetch
+if [[ " ${sync_list[@]} " =~ " neofetch " ]]; then
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/neofetch/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
