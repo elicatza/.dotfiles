@@ -2,6 +2,7 @@ local cursor = require('feline.providers.cursor')
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local file = require('feline.providers.file')
+local git = require('feline.providers.git')
 
 
 -- [1] = Left
@@ -13,7 +14,8 @@ local my_theme = {
   bg = '#282828',
   fg = '#ebdbb2',
 
-  gray = '#3c3836',
+  gray = '#504945',
+  -- gray = '#3c3836',
 
   -- Normal
   black =   '#282828',
@@ -219,19 +221,107 @@ local c = {
 
   -- Right side
   scroll_bar = {
-    provider = 'scroll_bar',
+    provider = function()
+      return fmt("%s ", cursor.scroll_bar())
+    end,
+    hl = {
+      bg = my_theme.gray,
+      fg = my_theme.yellow,
+    },
   },
 
   line_percentage = {
-    provider = 'line_percentage',
+    provider = function()
+      return fmt(" %s ", cursor.line_percentage())
+    end,
+    hl = {
+      bg = my_theme.gray,
+    },
+    left_sep = {
+      str = 'left',
+      hl = {
+        bg = my_theme.gray,
+        fg = my_theme.black,
+      },
+    },
   },
 
   position = {
-    provider = 'position',
+    provider = function()
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      col = vim.str_utfindex(vim.api.nvim_get_current_line(), col) + 1
+      return fmt(" %d:%d ", row, col)
+    end,
+    hl = {
+      bg = my_theme.gray,
+    },
+    left_sep = {
+      str = 'left_filled',
+      hl = {
+        bg = my_theme.green,
+        fg = my_theme.gray,
+      },
+    },
   },
 
   git_branch = {
-    provider = 'git_branch',
+    provider = function()
+      return fmt(" %s ", git.git_branch())
+    end,
+  },
+
+  git_diff_added = {
+    provider = function()
+      return fmt(" %s ", git.git_diff_added())
+    end,
+    hl = {
+      bg = my_theme.green,
+      fg = my_theme.white,
+    },
+    left_sep = {
+      str = 'left_filled',
+      always_visible = true,
+      hl = {
+        bg = my_theme.yellow,
+        fg = my_theme.green,
+      },
+    },
+  },
+
+  git_diff_changed = {
+    provider = function()
+      return fmt(" %s ", git.git_diff_changed())
+    end,
+    hl = {
+      bg = my_theme.yellow,
+      fg = my_theme.white,
+    },
+    left_sep = {
+      str = 'left_filled',
+      always_visible = true,
+      hl = {
+        bg = my_theme.red,
+        fg = my_theme.yellow,
+      },
+    },
+  },
+
+  git_diff_removed = {
+    provider = function()
+      return fmt(" %s ", git.git_diff_removed())
+    end,
+    hl = {
+      bg = my_theme.red,
+      fg = my_theme.white,
+    },
+    left_sep = {
+      str = 'left_filled',
+      always_visible = true,
+      hl = {
+        bg = my_theme.gray,
+        fg = my_theme.red,
+      },
+    },
   },
 }
 
@@ -252,7 +342,10 @@ local active = {
   },
 
   { -- Right
-    c.git_branch,
+    c.git_diff_removed,
+    c.git_diff_changed,
+    c.git_diff_added,
+    -- c.git_branch,
     c.position,
     c.line_percentage,
     c.scroll_bar,
