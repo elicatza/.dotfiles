@@ -272,11 +272,16 @@ local c = {
 
   git_diff_added = {
     provider = function()
-      return fmt(" %s ", git.git_diff_added())
+      if vim.b.gitsigns_status_dict['added'] > 0 then
+        return fmt(" %s ", vim.b.gitsigns_status_dict['added'])
+      else
+        return " "
+      end
     end,
     hl = {
       bg = my_theme.green,
-      fg = my_theme.white,
+      fg = my_theme.black,
+      style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
@@ -290,11 +295,16 @@ local c = {
 
   git_diff_changed = {
     provider = function()
-      return fmt(" %s ", git.git_diff_changed())
+      if vim.b.gitsigns_status_dict['changed'] > 0 then
+        return fmt(" %s ", vim.b.gitsigns_status_dict['changed'])
+      else
+        return " "
+      end
     end,
     hl = {
       bg = my_theme.yellow,
-      fg = my_theme.white,
+      fg = my_theme.black,
+      style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
@@ -308,11 +318,16 @@ local c = {
 
   git_diff_removed = {
     provider = function()
-      return fmt(" %s ", git.git_diff_removed())
+      if vim.b.gitsigns_status_dict['removed'] > 0 then
+        return fmt(" %s ", vim.b.gitsigns_status_dict['removed'])
+      else
+        return " "
+      end
     end,
     hl = {
       bg = my_theme.red,
-      fg = my_theme.white,
+      fg = my_theme.black,
+      style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
@@ -342,6 +357,8 @@ local active = {
   },
 
   { -- Right
+  -- Git this
+  -- Git this
     c.git_diff_removed,
     c.git_diff_changed,
     c.git_diff_added,
