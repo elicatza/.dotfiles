@@ -379,6 +379,7 @@ local c = {
 local active = {
   { -- Left
     c.vi_mode,
+    -- TODO Mode text colors does not follow gruvbox
     c.file_icon,
     c.file_name,
     c.lsp_errors,
@@ -396,6 +397,8 @@ local active = {
     c.git_diff_changed,
     c.git_diff_added,
     c.git_branch,
+    -- TODO add alternative for git
+    -- Ideas: spacewidth...
     c.position,
     c.line_percentage,
     c.scroll_bar,
