@@ -1,20 +1,41 @@
-local nvim_lsp = require('lspconfig')
+---@diagnostic disable: undefined-global
+-- local on_attach = function(client, bufnr)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+-- end
 
--- Enable completion triggered by <c-x><c-o>
-buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+local servers = {
+  'bashls',
+  'ccls',
+  'hls',
+  'html',
+  'pyright',
+  'rust_analyzer',
+  'sumneko_lua',
+  'tsserver',
+}
 
--- Mappings.
-local opts = { noremap=true, silent=true }
+for _, lsp in pairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = function()
 
--- See `:help vim.lsp.*` for documentation on any of the below functions
-buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      local opts = { noremap = true, silent = true, buffer = 0 }
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', '<leader>ds', vim.diagnostic.get, opts)
+      vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
 
+      vim.keymap.set("n", "<leader>fn", "<cmd>Telescope lsp_references<CR>", opts)
+      vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+
+    end,
+
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
 end
+

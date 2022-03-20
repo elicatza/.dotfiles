@@ -77,7 +77,7 @@ fi
 
 # nvim
 if [[ " ${sync_list[@]} " =~ " nvim " ]]; then
-    file_name="init.vim"
+    file_name="init.lua"
     dot_path="${SCRIPT_DIR}/config/nvim/"
     sys_path="${HOME}/.config/nvim/"
 
