@@ -77,6 +77,7 @@ local c = {
     end,
     hl = {
       bg = my_theme.blue,
+      fg = my_theme.b_white,
       style = 'bold',
     },
     left_sep = {
@@ -123,7 +124,7 @@ local c = {
     provider = 'diagnostic_warnings',
     enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
     hl = {
-      fg = my_theme.orange,
+      fg = my_theme.b_yellow,
       bg = my_theme.pink,
       style = 'bold',
     },
@@ -133,7 +134,7 @@ local c = {
     provider = 'diagnostic_hints',
     enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
     hl = {
-      fg = my_theme.white,
+      fg = my_theme.b_white,
       bg = my_theme.pink,
       style = 'bold',
     },
@@ -148,6 +149,7 @@ local c = {
     end,
     hl = {
       bg = my_theme.pink,
+      fg = my_theme.b_white,
       style = 'bold',
     },
     right_sep = {
@@ -226,7 +228,7 @@ local c = {
     end,
     hl = {
       bg = my_theme.gray,
-      fg = my_theme.yellow,
+      fg = my_theme.pink,
     },
   },
 
@@ -236,6 +238,7 @@ local c = {
     end,
     hl = {
       bg = my_theme.gray,
+      fg = my_theme.b_white,
     },
     left_sep = {
       str = 'left',
@@ -254,11 +257,12 @@ local c = {
     end,
     hl = {
       bg = my_theme.gray,
+      fg = my_theme.b_white,
     },
     left_sep = {
       str = 'left_filled',
       hl = {
-        bg = my_theme.green,
+        bg = my_theme.blue,
         fg = my_theme.gray,
       },
     },
@@ -266,17 +270,38 @@ local c = {
 
   git_branch = {
     provider = function()
-      return fmt(" %s ", git.git_branch())
+      return fmt("  %s ", vim.b.gitsigns_head)
     end,
+    enabled = function()
+      return require('feline.providers.git').git_info_exists() ~= nil
+    end,
+
+    hl = {
+      bg = my_theme.blue,
+      fg = my_theme.b_white,
+      style = 'bold',
+    },
+    left_sep = {
+      str = 'left_filled',
+      hl = {
+        bg = my_theme.green,
+        fg = my_theme.blue,
+      },
+    },
   },
 
   git_diff_added = {
     provider = function()
-      if vim.b.gitsigns_status_dict['added'] > 0 then
+      local gsd = vim.b.gitsigns_status_dict
+
+      if gsd and gsd['added'] and gsd['added'] > 0 then
         return fmt(" %s ", vim.b.gitsigns_status_dict['added'])
       else
         return " "
       end
+    end,
+    enabled = function()
+      return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
       bg = my_theme.green,
@@ -295,11 +320,16 @@ local c = {
 
   git_diff_changed = {
     provider = function()
-      if vim.b.gitsigns_status_dict['changed'] > 0 then
+      local gsd = vim.b.gitsigns_status_dict
+
+      if gsd and gsd['changed'] and gsd['changed'] > 0 then
         return fmt(" %s ", vim.b.gitsigns_status_dict['changed'])
       else
         return " "
       end
+    end,
+    enabled = function()
+      return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
       bg = my_theme.yellow,
@@ -318,11 +348,16 @@ local c = {
 
   git_diff_removed = {
     provider = function()
-      if vim.b.gitsigns_status_dict['removed'] > 0 then
+      local gsd = vim.b.gitsigns_status_dict
+
+      if gsd and gsd['removed'] and gsd['removed'] > 0 then
         return fmt(" %s ", vim.b.gitsigns_status_dict['removed'])
       else
         return " "
       end
+    end,
+    enabled = function()
+      return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
       bg = my_theme.red,
@@ -360,7 +395,7 @@ local active = {
     c.git_diff_removed,
     c.git_diff_changed,
     c.git_diff_added,
-    -- c.git_branch,
+    c.git_branch,
     c.position,
     c.line_percentage,
     c.scroll_bar,
@@ -376,8 +411,6 @@ local inactive = {
 
 
 require('feline').setup({
-  default_bg = my_theme.b_black,
-  default_fg = my_theme.white,
   components = { active = active, inactive = inactive },
   force_inactive = {
     filetypes = {
