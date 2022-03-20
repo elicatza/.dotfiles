@@ -357,8 +357,6 @@ local active = {
   },
 
   { -- Right
-  -- Git this
-  -- Git this
     c.git_diff_removed,
     c.git_diff_changed,
     c.git_diff_added,
