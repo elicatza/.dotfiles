@@ -5,11 +5,6 @@ local file = require('feline.providers.file')
 local git = require('feline.providers.git')
 
 
--- [1] = Left
--- [2] = Middle
--- [3] = Right
-
-
 local fmt = string.format
 
 local c = {
@@ -374,12 +369,14 @@ local active = {
   },
 }
 
+
 local inactive = {
   { -- Left
   },
   { -- Right
   },
 }
+
 
 local theme = require('elicatza.feline.theme') -- ./theme.lua
 local defaults = require('elicatza.feline.custom_defaults') -- ./custom_defaults.lua
