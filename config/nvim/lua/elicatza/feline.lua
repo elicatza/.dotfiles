@@ -38,6 +38,14 @@ local my_theme = {
   b_purple = '#d3869b',
   b_aqua =    '#8ec07c',
   b_white =   '#ebdbb2',
+
+  -- for filetype https://github.com/feline-nvim/feline.nvim/blob/master/lua/feline/themes/default.lua
+  skyblue = '#83a598',
+  oceanblue = '#83a598',
+  cyan = '#689d6a',
+  magenta = '#d3869b',
+  violet = '#b16286',
+
 }
 
 local fmt = string.format
@@ -52,15 +60,15 @@ local c = {
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
         fg = vi_mode_utils.get_mode_color(),
-        bg = my_theme.gray,
+        bg = 'gray',
         style = 'bold',
       }
     end,
     right_sep = {
       str = 'slant_right',
       hl = {
-        bg = my_theme.blue,
-        fg = my_theme.gray,
+        bg = 'blue',
+        fg = 'gray',
       },
     },
   },
@@ -76,8 +84,8 @@ local c = {
       return icon .. ' '
     end,
     hl = {
-      bg = my_theme.blue,
-      fg = my_theme.b_white,
+      bg = 'blue',
+      fg = 'b_white',
       style = 'bold',
     },
     left_sep = {
@@ -97,15 +105,15 @@ local c = {
     update = { 'BufEnter' },
 
     hl = {
-      bg = my_theme.blue,
-      fg = my_theme.b_white,
+      bg = 'blue',
+      fg = 'b_white',
       style = 'bold',
     },
     right_sep = {
       str = 'slant_left',
       hl = {
-        fg = my_theme.pink,
-        bg = my_theme.blue,
+        fg = 'pink',
+        bg = 'blue',
       },
     },
   },
@@ -114,8 +122,8 @@ local c = {
     provider = 'diagnostic_errors',
     enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR) end,
     hl = {
-      fg = my_theme.red,
-      bg = my_theme.pink,
+      fg = 'red',
+      bg = 'pink',
       style = 'bold',
     },
   },
@@ -124,8 +132,8 @@ local c = {
     provider = 'diagnostic_warnings',
     enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
     hl = {
-      fg = my_theme.b_yellow,
-      bg = my_theme.pink,
+      fg = 'b_yellow',
+      bg = 'pink',
       style = 'bold',
     },
   },
@@ -134,8 +142,8 @@ local c = {
     provider = 'diagnostic_hints',
     enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
     hl = {
-      fg = my_theme.b_white,
-      bg = my_theme.pink,
+      fg = 'b_white',
+      bg = 'pink',
       style = 'bold',
     },
   },
@@ -148,15 +156,15 @@ local c = {
       return next(vim.lsp.buf_get_clients(0)) ~= nil
     end,
     hl = {
-      bg = my_theme.pink,
-      fg = my_theme.b_white,
+      bg = 'pink',
+      fg = 'b_white',
       style = 'bold',
     },
     right_sep = {
       str = 'slant_right',
       hl = {
-        fg = my_theme.pink,
-        bg = my_theme.gray,
+        fg = 'pink',
+        bg = 'gray',
       },
     },
   },
@@ -178,14 +186,14 @@ local c = {
       return true
     end,
     hl = {
-      bg = my_theme.pink,
+      bg = 'pink',
       style = 'bold',
     },
     right_sep = {
       str = 'slant_right',
       hl = {
-        fg = my_theme.pink,
-        bg = my_theme.gray,
+        fg = 'pink',
+        bg = 'gray',
       },
     },
   },
@@ -208,14 +216,14 @@ local c = {
       return true
     end,
     hl = {
-      bg = my_theme.pink,
+      bg = 'pink',
       style = 'bold',
     },
     right_sep = {
       str = 'slant_right',
       hl = {
-        fg = my_theme.pink,
-        bg = my_theme.gray,
+        fg = 'pink',
+        bg = 'gray',
       },
     },
   },
@@ -227,8 +235,8 @@ local c = {
       return fmt("%s ", cursor.scroll_bar())
     end,
     hl = {
-      bg = my_theme.gray,
-      fg = my_theme.pink,
+      bg = 'gray',
+      fg = 'pink',
     },
   },
 
@@ -237,14 +245,14 @@ local c = {
       return fmt(" %s ", cursor.line_percentage())
     end,
     hl = {
-      bg = my_theme.gray,
-      fg = my_theme.b_white,
+      bg = 'gray',
+      fg = 'b_white',
     },
     left_sep = {
       str = 'left',
       hl = {
-        bg = my_theme.gray,
-        fg = my_theme.black,
+        bg = 'gray',
+        fg = 'black',
       },
     },
   },
@@ -256,14 +264,14 @@ local c = {
       return fmt(" %d:%d ", row, col)
     end,
     hl = {
-      bg = my_theme.gray,
-      fg = my_theme.b_white,
+      bg = 'gray',
+      fg = 'b_white',
     },
     left_sep = {
       str = 'left_filled',
       hl = {
-        bg = my_theme.blue,
-        fg = my_theme.gray,
+        bg = 'blue',
+        fg = 'gray',
       },
     },
   },
@@ -277,15 +285,15 @@ local c = {
     end,
 
     hl = {
-      bg = my_theme.blue,
-      fg = my_theme.b_white,
+      bg = 'blue',
+      fg = 'b_white',
       style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
       hl = {
-        bg = my_theme.green,
-        fg = my_theme.blue,
+        bg = 'green',
+        fg = 'blue',
       },
     },
   },
@@ -304,16 +312,16 @@ local c = {
       return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
-      bg = my_theme.green,
-      fg = my_theme.black,
+      bg = 'green',
+      fg = 'black',
       style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
       always_visible = true,
       hl = {
-        bg = my_theme.yellow,
-        fg = my_theme.green,
+        bg = 'yellow',
+        fg = 'green',
       },
     },
   },
@@ -332,16 +340,16 @@ local c = {
       return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
-      bg = my_theme.yellow,
-      fg = my_theme.black,
+      bg = 'yellow',
+      fg = 'black',
       style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
       always_visible = true,
       hl = {
-        bg = my_theme.red,
-        fg = my_theme.yellow,
+        bg = 'red',
+        fg = 'yellow',
       },
     },
   },
@@ -360,16 +368,16 @@ local c = {
       return require('feline.providers.git').git_info_exists() ~= nil
     end,
     hl = {
-      bg = my_theme.red,
-      fg = my_theme.black,
+      bg = 'red',
+      fg = 'black',
       style = 'bold',
     },
     left_sep = {
       str = 'left_filled',
       always_visible = true,
       hl = {
-        bg = my_theme.gray,
-        fg = my_theme.red,
+        bg = 'gray',
+        fg = 'red',
       },
     },
   },
@@ -414,6 +422,7 @@ local inactive = {
 
 
 require('feline').setup({
+  theme = my_theme,
   components = { active = active, inactive = inactive },
   force_inactive = {
     filetypes = {
