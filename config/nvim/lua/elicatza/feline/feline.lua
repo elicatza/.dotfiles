@@ -10,44 +10,6 @@ local git = require('feline.providers.git')
 -- [3] = Right
 
 
-local my_theme = {
-  bg = '#282828',
-  fg = '#ebdbb2',
-
-  gray = '#504945',
-  -- gray = '#3c3836',
-
-  -- Normal
-  black =   '#282828',
-  red =     '#cc241d',
-  green =   '#98971a',
-  yellow =  '#d79921',
-  orange  = '#d65d0e',
-  blue =    '#458588',
-  purple =  '#b16286',
-  pink =    '#fc5d7d',
-  aqua =    '#689d6a',
-  white =   '#a89984',
-
-  -- Bright
-  b_black =   '#928374',
-  b_red =     '#fb4934',
-  b_green =   '#b8bb26',
-  b_yellow =  '#fabd2f',
-  b_blue =    '#83a598',
-  b_purple = '#d3869b',
-  b_aqua =    '#8ec07c',
-  b_white =   '#ebdbb2',
-
-  -- for filetype https://github.com/feline-nvim/feline.nvim/blob/master/lua/feline/themes/default.lua
-  skyblue = '#83a598',
-  oceanblue = '#83a598',
-  cyan = '#689d6a',
-  magenta = '#d3869b',
-  violet = '#b16286',
-
-}
-
 local fmt = string.format
 
 local c = {
@@ -419,9 +381,10 @@ local inactive = {
   },
 }
 
+local custom_defaults = require('elicatza.feline.custom_defaults')
 
 require('feline').setup({
-  theme = my_theme,
+  theme = custom_defaults,
   components = { active = active, inactive = inactive },
   force_inactive = {
     filetypes = {

@@ -6,4 +6,4 @@ require('elicatza.lsp')         -- ./lua/elicatza/lsp.lua
 require('elicatza.telescope')   -- ./lua/elicatza/telescope.lua
 require('elicatza.snippets')    -- ./lua/elicatza/snippets/init.lua
 require('elicatza.gitsigns')    -- ./lua/elicatza/gitsigns.lua
-require('elicatza.feline')      -- ./lua/elicatza/feline.lua
+require('elicatza.feline')      -- ./lua/elicatza/feline/init.lua
