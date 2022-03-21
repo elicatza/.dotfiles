@@ -387,7 +387,6 @@ local c = {
 local active = {
   { -- Left
     c.vi_mode,
-    -- TODO Mode text colors does not follow gruvbox
     c.file_icon,
     c.file_name,
     c.lsp_errors,
