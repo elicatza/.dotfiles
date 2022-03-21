@@ -381,24 +381,11 @@ local inactive = {
   },
 }
 
-local custom_defaults = require('elicatza.feline.custom_defaults')
+local theme = require('elicatza.feline.theme') -- ./theme.lua
+local defaults = require('elicatza.feline.custom_defaults') -- ./custom_defaults.lua
 
 require('feline').setup({
-  theme = custom_defaults,
+  theme = theme,
+  vi_mode_colors = defaults.vi_mode_colors,
   components = { active = active, inactive = inactive },
-  force_inactive = {
-    filetypes = {
-      "NvimTree",
-      "packer",
-      "dap-reql",
-      "dapui_scopes",
-      "dapui_stacks",
-      "dapui_repl",
-      "LspTrouble",
-      "qf",
-      "help",
-    },
-    buftypes = { "terminal" },
-    bufnames = {},
-  },
 })
