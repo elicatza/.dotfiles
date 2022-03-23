@@ -266,7 +266,7 @@ local c = {
       end
     end,
     enabled = function()
-      return require('feline.providers.git').git_info_exists() ~= nil
+      return git.git_info_exists() ~= nil
     end,
     hl = {
       bg = 'green',
@@ -294,7 +294,7 @@ local c = {
       end
     end,
     enabled = function()
-      return require('feline.providers.git').git_info_exists() ~= nil
+      return git.git_info_exists() ~= nil
     end,
     hl = {
       bg = 'yellow',
@@ -322,7 +322,7 @@ local c = {
       end
     end,
     enabled = function()
-      return require('feline.providers.git').git_info_exists() ~= nil
+      return git.git_info_exists() ~= nil
     end,
     hl = {
       bg = 'red',
