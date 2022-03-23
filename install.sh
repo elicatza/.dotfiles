@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar" "sxhkd" "X11" "neofetch")
+sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
 
 
 function link() {
@@ -86,6 +86,15 @@ if [[ " ${sync_list[@]} " =~ " nvim " ]]; then
     file_name=""
     dot_path="${SCRIPT_DIR}/config/nvim/lua/elicatza/"
     sys_path="${HOME}/.config/nvim/lua/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# Awesome
+if [[ " ${sync_list[@]} " =~ " awesome " ]]; then
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/awesome/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi

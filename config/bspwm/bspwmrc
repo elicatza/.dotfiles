@@ -4,7 +4,7 @@ killall picom
 picom &
 xbindkeys
 # feh --bg-fill --randomize ~/.local/share/feh-wallpapers/
-feh --bg-scale --no-fehbg --randomize ~/.local/share/feh-wallpapers/
+feh --bg-scale --no-fehbg --randomize ~/.local/share/background-images/
 
 killall polybar
 $HOME/.config/polybar/launch.sh
