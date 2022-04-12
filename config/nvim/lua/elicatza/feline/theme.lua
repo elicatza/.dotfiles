@@ -8,11 +8,12 @@ return {
   bg = '#282828',
   fg = '#EBDBB2',
 
+  black = '#282828',
+  white = '#A89984',
   gray = '#504945',
   -- gray = '#3c3836',
 
   -- Normal
-  black = '#282828',
   red = '#CC241D',
   green = '#98971A',
   yellow = '#D79921',
@@ -21,7 +22,6 @@ return {
   purple = '#B16286',
   pink = '#FC5D7D',
   aqua = '#689D6A',
-  white = '#A89984',
 
   -- Bright
   b_black = '#928374',

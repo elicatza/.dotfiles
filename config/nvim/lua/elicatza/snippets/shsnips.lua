@@ -1,15 +1,20 @@
-local ls = require "luasnip"
-local fmt = require("luasnip.extras.fmt").fmt
+local ls = require('luasnip')
+local fmt = require('luasnip.extras.fmt').fmt
 
+ls.add_snippets("sh", {
+    -- shebang
+    ls.s(
+      "shebang",
+      fmt(
+        [[
+          #!/usr/bin/env sh{}
+        ]],
+        {
+          ls.insert_node(0),
+        }
+      )
+    ),
 
-ls.snippets = {
-
-
-  sh = {
-    ls.parser.parse_snippet("sst", "#!/usr/bin/env sh"),
-    ls.parser.parse_snippet("shebang", "#!/usr/bin/env sh"),
-    ls.parser.parse_snippet("hello", "printf \"Hello world!\\n\""),
-    -- getopts, for, while, dowhile, if, else, elif, func
     ls.s(
       "dependencies",
       fmt(
@@ -29,6 +34,9 @@ ls.snippets = {
         }
       )
     ),
-  },
-}
 
+  },
+  {
+    key = "sh",
+  }
+)
