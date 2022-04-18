@@ -59,6 +59,8 @@ return packer.startup(function(use)
   -- Snippits
   use 'L3MON4D3/LuaSnip'
 
+  use 'wakatime/vim-wakatime'
+
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

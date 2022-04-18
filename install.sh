@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
-sync_list=("tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
+sync_list=("dunst" "zsh" "picom" "tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
 
 
 function link() {
@@ -21,11 +21,38 @@ function link() {
     ln -sf "${dot_path}${file_name}" "${sys_path}${file_name}"
 }
 
+# dunst
+if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/dunst/"
+    sys_path="${HOME}/.config/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# zsh
+if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/zsh/"
+    sys_path="${HOME}/.config/"
+
+    link $file_name $dot_path $sys_path
+fi
+
+# picom
+if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+    file_name=""
+    dot_path="${SCRIPT_DIR}/config/picom/"
+    sys_path="${HOME}/.config/"
+
+    link $file_name $dot_path $sys_path
+fi
+
 # tmux
 if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
-    file_name="tmux.conf"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/tmux/"
-    sys_path="${HOME}/.config/tmux/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
@@ -59,18 +86,18 @@ fi
 
 # alacritty
 if [[ " ${sync_list[@]} " =~ " alacritty " ]]; then
-    file_name="alacritty.yml"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/alacritty/"
-    sys_path="${HOME}/.config/alacritty/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
 
 # bspwm
 if [[ " ${sync_list[@]} " =~ " bspwm " ]]; then
-    file_name="bspwmrc"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/bspwm/"
-    sys_path="${HOME}/.config/bspwm/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
@@ -110,18 +137,18 @@ fi
 
 # sxhkd
 if [[ " ${sync_list[@]} " =~ " sxhkd " ]]; then
-    file_name="sxhkdrc"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/sxhkd/"
-    sys_path="${HOME}/.config/sxhkd/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi
 
 # X11
 if [[ " ${sync_list[@]} " =~ " X11 " ]]; then
-    file_name="custom-dvorak-no"
+    file_name=""
     dot_path="${SCRIPT_DIR}/config/X11/"
-    sys_path="${HOME}/.config/X11/"
+    sys_path="${HOME}/.config/"
 
     link $file_name $dot_path $sys_path
 fi

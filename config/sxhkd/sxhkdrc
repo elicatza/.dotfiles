@@ -12,6 +12,28 @@ ctrl + Return
 mod3 + @space
 	dmenu_run
 
+
+# Dunst
+# Append new notification
+mod3 + d ; a
+    notify-send --urgency normal --expire-time 5000 "Header" "Body"
+
+# Display last history
+mod3 + d ; h
+    dunstctl history-pop
+
+# Close all notifications
+mod3 + d ; c
+    dunstctl close-all
+
+# Reload dunst
+mod3 + d ; r
+    source ~/.config/sxhkd/scripts/my-dunstctl.sh reload
+
+# Toggle notifications
+mod3 + d ; t
+    source ~/.config/sxhkd/scripts/my-dunstctl.sh toggle
+
 # Browser
 mod3 + b
     firefox
