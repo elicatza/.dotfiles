@@ -164,7 +164,6 @@ local c = {
         return false
       end
 
-
       local spellState = vim.api.nvim_eval('&spell')
       if (spellState == 1) then
         return false
@@ -189,7 +188,7 @@ local c = {
   -- Right side
   scroll_bar = {
     provider = function()
-      return fmt("%s ", cursor.scroll_bar())
+      return fmt("%s ", cursor.scroll_bar("foo", { reverse = false }))
     end,
     hl = {
       bg = 'gray',

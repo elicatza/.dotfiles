@@ -1,4 +1,4 @@
-local HOME = os.getenv("HOME")
+local XDG_DATA_HOME = os.getenv("XDG_DATA_HOME") or os.getenv("HOME") .. "/.local/share"
 local indent = 4
 
 local options = {
@@ -17,19 +17,25 @@ local options = {
   signcolumn = 'yes',
   colorcolumn = "120",
   wrap = false,
-  laststatus=3,
+  laststatus = 3,
+  conceallevel = 2, -- Vim-Markdown
 
   swapfile = false,
   backup = false,
-  undodir = HOME .. "/.vim/undodir",
+  undodir = XDG_DATA_HOME .. "/nvim/undodir",
 
-  completeopt = "menu,menuone,noselect"
+  completeopt = "menu,menuone,noselect",
 }
 
 vim.g.mkdp_auto_close = 0 -- MarkdownPreview
-vim.cmd [[ colorscheme gruvbox ]]
-vim.cmd [[ highlight WinSeparator guibg=None ]]
-vim.cmd [[ set termguicolors ]]
+-- vim.g.vim_markdown_folding_disabled = 1
+-- vim.g.vim_markdown_conceal = 1
+
+
+vim.opt.background = "dark" -- or "light" for light mode
+vim.cmd([[ colorscheme gruvbox ]])
+vim.cmd([[ highlight WinSeparator guibg=None ]])
+vim.cmd([[ set termguicolors ]])
 
 local group = vim.api.nvim_create_augroup("MyGroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {

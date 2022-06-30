@@ -159,7 +159,7 @@ interval = 3.0
 format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.white}
-label-connected = %essid%
+label-connected = "%downspeed% %upspeed% %essid%"
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>

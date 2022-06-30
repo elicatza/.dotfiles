@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
-sync_list=("dunst" "zsh" "picom" "tmux" "xinit" "zsh" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
+sync_list=("dunst" "zsh" "picom" "tmux" "xinit" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
 
 
 function link() {
@@ -60,15 +60,6 @@ fi
 # xinit
 if [[ " ${sync_list[@]} " =~ " xinit " ]]; then
     file_name=".xinitrc"
-    dot_path="${SCRIPT_DIR}/"
-    sys_path="${HOME}/"
-
-    link $file_name $dot_path $sys_path
-fi
-
-# zsh
-if [[ " ${sync_list[@]} " =~ " zsh " ]]; then
-    file_name=".zshrc"
     dot_path="${SCRIPT_DIR}/"
     sys_path="${HOME}/"
 

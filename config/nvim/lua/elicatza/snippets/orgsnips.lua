@@ -1,32 +1,16 @@
 local ls = require('luasnip')
 local fmt = require('luasnip.extras.fmt').fmt
 
-ls.add_snippets("markdown", {
+ls.add_snippets("org", {
       -- TODO: Table in X by X
-
-      -- currently reading
-      ls.s(
-        "curreading",
-        fmt(
-          [[
-            Malibu Rising by Taylor Jenkins Reid{}
-          ]],
-          {
-            ls.insert_node(0);
-          }
-        )
-      ),
 
       -- link
       ls.s(
         "link",
-        fmt(
-          [[
-            [{}]({}){}
-          ]],
+        fmt("[[{}][{}]]{}",
           {
-            ls.insert_node(1, "name"),
-            ls.insert_node(2, "URI"),
+            ls.insert_node(1, "URI"),
+            ls.insert_node(2, "name"),
             ls.insert_node(0),
           }
         )
@@ -64,6 +48,6 @@ ls.add_snippets("markdown", {
       ),
 
     }, {
-      key = "markdown",
+      key = "org",
   }
 )

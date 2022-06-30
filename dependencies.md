@@ -49,6 +49,7 @@
 * rust-analyzer
 * typescript-language-server
 * vscode-langservers-extracted
+
 ## Desktop applications
 * alacritty
 * firefox

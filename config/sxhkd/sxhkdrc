@@ -13,28 +13,28 @@ mod3 + @space
 	dmenu_run
 
 
-# Dunst
+# dunst
 # Append new notification
 mod3 + d ; a
     notify-send --urgency normal --expire-time 5000 "Header" "Body"
 
-# Display last history
+# display last history
 mod3 + d ; h
     dunstctl history-pop
 
-# Close all notifications
+# close all notifications
 mod3 + d ; c
     dunstctl close-all
 
-# Reload dunst
+# reload dunst
 mod3 + d ; r
     source ~/.config/sxhkd/scripts/my-dunstctl.sh reload
 
-# Toggle notifications
+# toggle notifications
 mod3 + d ; t
     source ~/.config/sxhkd/scripts/my-dunstctl.sh toggle
 
-# Browser
+# browser
 mod3 + b
     firefox
 
@@ -45,6 +45,10 @@ mod3 + Escape
 
 mod3 + m
     xmouseless
+
+# change background
+mod3 + n
+    sxiv -t ~/.local/share/desktop-wallapers/*
 #
 # bspwm hotkeys
 #
