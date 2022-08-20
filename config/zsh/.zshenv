@@ -22,8 +22,12 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
+export GOPATH="${XDG_DATA_HOME}/go"
+export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
+
 
 # Prefrences
 export EDITOR=nvim
 export PATH="${HOME}/.local/bin:${PATH}"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+

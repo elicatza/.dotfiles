@@ -55,7 +55,3 @@
 * firefox
 * mpv
 * sxiv
-
-## Desktop applications (optional)
-* gimp
-* evince

@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap("n", "<leader>vrc", ":e " .. CONF_DIR .. "/nvim/init.lua
 
 -- Open word under cursor in wiktionary
 vim.keymap.set("n", "<leader>ss", function()
-  local word = vim.api.nvim_eval("expand('<cword>')")
+  local word = string.lower(vim.api.nvim_eval("expand('<cword>')"))
   os.execute("firefox https://en.wiktionary.org/wiki/" .. word)
   print(word)
 end, { noremap = true, silent = true })

@@ -41,7 +41,8 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'tridactyl/vim-tridactyl'
+  use 'tridactyl/vim-tridactyl' -- For trydactyl config
+  use 'elkowar/yuck.vim' -- For eww config filetype yuck
 
   --  Markup
   use 'preservim/vim-markdown'

@@ -1,0 +1,39 @@
+"mediacuddle brightness -d $((1388 / 15)) --alert"
+    XF86MonBrightnessDown
+
+"mediacuddle brightness -i $((1388 / 15)) --alert"
+    XF86MonBrightnessUp
+
+"mediacuddle brightness -d $((1388 / 100)) --alert"
+    Shift + XF86MonBrightnessDown
+
+"mediacuddle brightness -i $((1388 / 100)) --alert"
+    Shift + XF86MonBrightnessUp
+
+"setxkbmap "us(intl)"; xmodmap ~/.config/X11/custom-dvorak-no; mediacuddle keymap -a Dvorak"
+    XF86LaunchB
+
+"mediacuddle playback --previous -a"
+    XF86AudioPrev
+
+"mediacuddle playback --toggle -a"
+    XF86AudioPlay
+
+"mediacuddle playback --next -a"
+    XF86AudioNext
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    XF86AudioMute
+
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    XF86AudioLowerVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    XF86AudioRaiseVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ -1%"
+    Shift + XF86AudioLowerVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ +1%"
+    Shift + XF86AudioRaiseVolume
+

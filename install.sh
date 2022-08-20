@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
-sync_list=("dunst" "zsh" "picom" "tmux" "xinit" "xbindkeys" "alacritty" "bspwm" "nvim" "awesome" "polybar" "sxhkd" "X11" "neofetch")
+sync_list=("dunst" "zsh" "picom" "tmux" "xinit" "xbindkeys" "alacritty" "bspwm" "nvim" "polybar" "sxhkd" "X11" "neofetch")
 
 
 function link() {
@@ -22,7 +22,7 @@ function link() {
 }
 
 # dunst
-if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+if [[ " ${sync_list[@]} " =~ " dunst " ]]; then
     file_name=""
     dot_path="${SCRIPT_DIR}/config/dunst/"
     sys_path="${HOME}/.config/"
@@ -31,7 +31,7 @@ if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
 fi
 
 # zsh
-if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+if [[ " ${sync_list[@]} " =~ " zsh " ]]; then
     file_name=""
     dot_path="${SCRIPT_DIR}/config/zsh/"
     sys_path="${HOME}/.config/"
@@ -40,7 +40,7 @@ if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
 fi
 
 # picom
-if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
+if [[ " ${sync_list[@]} " =~ " picom " ]]; then
     file_name=""
     dot_path="${SCRIPT_DIR}/config/picom/"
     sys_path="${HOME}/.config/"
@@ -57,20 +57,11 @@ if [[ " ${sync_list[@]} " =~ " tmux " ]]; then
     link $file_name $dot_path $sys_path
 fi
 
-# xinit
-if [[ " ${sync_list[@]} " =~ " xinit " ]]; then
-    file_name=".xinitrc"
-    dot_path="${SCRIPT_DIR}/"
-    sys_path="${HOME}/"
-
-    link $file_name $dot_path $sys_path
-fi
-
 # xbindkeys
 if [[ " ${sync_list[@]} " =~ " xbindkeys " ]]; then
-    file_name=".xbindkeysrc"
-    dot_path="${SCRIPT_DIR}/"
-    sys_path="${HOME}/"
+    file_name="config"
+    dot_path="${SCRIPT_DIR}/config/xbindkeys/"
+    sys_path="${HOME}/.config/xbindkeys/"
 
     link $file_name $dot_path $sys_path
 fi

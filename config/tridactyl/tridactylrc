@@ -1,0 +1,68 @@
+" vim: set filetype=tridactyl
+" General Settings
+set update.lastchecktime 1656075195305
+set configversion 2.0
+
+set colors dark
+
+set allowautofocus false
+set hintautoselect true
+set hintchars aoeuhtns.rcg
+set hintdelay 100
+set smoothscroll true
+set editorcmd alacritty -e tmux new-session -s 'tridactylrc' -n config 'nvim ~/.config/tridactyl/tridactylrc'
+
+unbind <C-f>
+unbind d
+bind x tabclose
+bind u undo
+bind <C-d> scrollpage 0.6
+bind <C-u> scrollpage -0.6
+
+bind H tabprev
+bind L tabnext
+bind J forward
+bind K back
+
+bind --mode=ex     <C-n> ex.next_completion
+bind O composite url2args | fillcmdline open
+bind T composite url2args | fillcmdline tabopen
+
+" More vim-like search keymaps
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind ,<Space> nohlsearch
+
+bindurl youtu((\.be)|(be\.com)) f hint -J
+
+
+" Restet urls to default, then remove defaults
+jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.catch(()=>{}).then(_ => tri.excmds.setnull("searchurls." + u)), Promise.resolve())
+
+" Set new urls
+" TODO: Implement following sites
+" german dictionary: de duden?
+" translation: trans google-translate?
+set searchurls.aw https://wiki.archlinux.org/index.php?search=
+set searchurls.ddg https://duckduckgo.com/?t=ffsb&q=%s&ia=web
+set searchurls.git https://github.com/search?q=
+set searchurls.gitl https://docs.gitlab.com/search/?query=
+set searchurls.gw https://wiki.gentoo.org/index.php?search=
+set searchurls.mdn https://developer.mozilla.org/en-US/search?q=
+set searchurls.no https://ordbokene.no/bm,nn/search?q=
+set searchurls.rdoc https://doc.rust-lang.org/std/index.html?search=
+set searchurls.rlib https://lib.rs/search?q=
+set searchurls.snl https://snl.no/.search?query=
+set searchurls.w https://en.wikipedia.org/w/index.php?search=
+set searchurls.wikt https://en.wiktionary.org/w/index.php?search=
+set searchurls.yt https://www.youtube.com/results?search_query=
+set searchurls.aur https://aur.archlinux.org/packages?O=0&K=
+set searchurls.pacman https://archlinux.org/packages/?q=
+set searchurls.de https://en.wiktionary.org/wiki/%s#German
+set searchurls.genius https://genius.com/search?q=
+
+" Native stuff
+
+setpref browser.autofocus false

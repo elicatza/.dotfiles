@@ -13,8 +13,9 @@ require('nvim-treesitter.configs').setup {
 }
 --
 require('orgmode').setup({
-  org_agenda_files = { '~/tmp/*' },
-  org_default_notes_file = '~/doc/org/notes.org',
+  org_agenda_files = { '~/doc/org/**/*' },
+  org_default_notes_file = '~/doc/org/todo.org',
+  org_archive_location = '~/doc/org/archive',
   org_hide_leading_stars = true,
   org_hide_emphasis_markers = true,
   org_capture_templates = {
@@ -31,7 +32,7 @@ require('orgmode').setup({
     er = {
       description = 'recurring',
       template = '** %?\n   SCHEDULED: <%<%Y-%m-%d %H:%M +7d>>\n   %u\n',
-      target = '~/doc/org/calendar.org',
+      target = '~/doc/org/agenda/calendar.org',
       headline = 'Tasks'
     },
     eo = {

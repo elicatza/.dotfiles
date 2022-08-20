@@ -48,7 +48,7 @@ mod3 + m
 
 # change background
 mod3 + n
-    sxiv -t ~/.local/share/desktop-wallapers/*
+    sxiv -t ~/.local/share/desktop-wallpapers/*
 #
 # bspwm hotkeys
 #
