@@ -30,4 +30,5 @@ export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
 export EDITOR=nvim
 export PATH="${HOME}/.local/bin:${PATH}"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+export PYTHONPATH="${HOME}/dev/coding/hades/lib/hades"
 

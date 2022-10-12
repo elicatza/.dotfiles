@@ -37,7 +37,7 @@ cmp.setup.filetype('org', {
   sources = cmp.config.sources({
     -- FIX: Causes orgmode to use up all ram
     -- Solution pkill -9 nvim
-    -- { name = 'orgmode' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'orgmode' }, -- You can specify the `cmp_git` source if you were installed it.
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 3, max_item_count = 4 },
   })

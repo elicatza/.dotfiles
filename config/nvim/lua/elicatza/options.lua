@@ -30,7 +30,7 @@ local options = {
 vim.g.mkdp_auto_close = 0 -- MarkdownPreview
 -- vim.g.vim_markdown_folding_disabled = 1
 -- vim.g.vim_markdown_conceal = 1
-
+vim.g.netrw_browsex_support_remote = "zathura"
 
 vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[ colorscheme gruvbox ]])

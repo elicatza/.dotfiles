@@ -1,6 +1,6 @@
 
 -- Load custom tree-sitter grammar for org filetype
-require('orgmode').setup_ts_grammar()
+-- require('orgmode').setup_ts_grammar()
 
 -- Tree-sitter configuration
 require('nvim-treesitter.configs').setup {
@@ -11,7 +11,8 @@ require('nvim-treesitter.configs').setup {
   },
   ensure_installed = {'org'}, -- Or run :TSUpdate org
 }
---
+
+require('orgmode').setup_ts_grammar()
 require('orgmode').setup({
   org_agenda_files = { '~/doc/org/**/*' },
   org_default_notes_file = '~/doc/org/todo.org',
@@ -44,12 +45,12 @@ require('orgmode').setup({
   }
 })
 
--- -- require('cmp').setup({
---   -- sources = {
---     -- { name = 'orgmode' }
---   -- }
--- -- })
---   -- Set configuration for specific filetype.
+-- require('cmp').setup({
+  -- sources = {
+    -- { name = 'orgmode' }
+  -- }
+-- })
+-- Set configuration for specific filetype.
 
 -- init.lua
 
