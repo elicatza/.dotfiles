@@ -4,8 +4,8 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-# PS1='%F{red}%*%F{reset_color}:%F{blue}%~ $ %F{reset_color}'
-PS1='%F{red}%*%F{reset_color} %F{blue}$ %F{reset_color}'
+PS1='%F{red}%*%F{reset_color}:%F{blue}%~ $ %F{reset_color}'
+# PS1='%F{red}%*%F{reset_color} %F{blue}$ %F{reset_color}'
 
 set -o vi
 alias startx='startx /home/eliza/.config/X11/xinitrc'
