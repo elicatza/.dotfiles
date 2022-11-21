@@ -15,7 +15,20 @@ vim.api.nvim_set_keymap("n", "<leader>vrc", ":e " .. CONF_DIR .. "/nvim/init.lua
 vim.keymap.set("n", "<leader>ss", function()
   local word = string.lower(vim.api.nvim_eval("expand('<cword>')"))
   os.execute("firefox https://en.wiktionary.org/wiki/" .. word)
-  print(word)
+end, { noremap = true, silent = true })
+
+vim.keymap.set("v", "<leader>cd", function()
+  local vstart = vim.fn.getcharpos("'<")
+  local vend = vim.fn.getcharpos("'>")
+
+  local line_start = vstart[2]
+  local line_end = vend[2]
+
+  -- or use api.nvim_buf_get_lines
+  local lines = table.concat(vim.fn.getline(line_start, line_end))
+  vim.cmd("terminal gramma -l de-DE listen '" .. lines .. "'")
+  -- os.execute("notify-send 'test' ' " .. lines .. "'")
+  print(lines)
 end, { noremap = true, silent = true })
 
 -- Telescope

@@ -20,10 +20,10 @@ require('orgmode').setup({
   org_hide_leading_stars = true,
   org_hide_emphasis_markers = true,
   org_capture_templates = {
-    j = {
-      description = 'Journal',
-      template = '\n** %<%Y-%m-%d> %<%A>\n*** %U\n   %?',
-      target = '~/doc/org/journal.org'
+    d = {
+      description = 'Diary',
+      template = '\n** %<%Y-%m-%d> %<%A>\n*** %U\n    %?',
+      target = '~/doc/org/diary.org'
     },
     t = {
       description = 'TODO',
