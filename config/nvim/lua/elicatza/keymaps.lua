@@ -13,50 +13,18 @@ vim.api.nvim_set_keymap("n", "<leader>vrc", ":e " .. CONF_DIR .. "/nvim/init.lua
 
 -- Open word under cursor in wiktionary
 vim.keymap.set("n", "<leader>ss", function()
-  local word = string.lower(vim.api.nvim_eval("expand('<cword>')"))
+  local word = vim.api.nvim_eval("expand('<cword>')")
   os.execute("firefox https://en.wiktionary.org/wiki/" .. word)
 end, { noremap = true, silent = true })
 
-vim.keymap.set("v", "<leader>cd", function()
-  local vstart = vim.fn.getcharpos("'<")
-  local vend = vim.fn.getcharpos("'>")
-
-  local line_start = vstart[2]
-  local line_end = vend[2]
-
-  -- or use api.nvim_buf_get_lines
-  local lines = table.concat(vim.fn.getline(line_start, line_end))
-  vim.cmd("terminal gramma -l de-DE listen '" .. lines .. "'")
-  -- os.execute("notify-send 'test' ' " .. lines .. "'")
-  print(lines)
-end, { noremap = true, silent = true })
-
 -- Telescope
-vim.keymap.set("n", "<leader>ff", function()
-  require('telescope.builtin').find_files()
-end, { noremap = true })
-
-vim.keymap.set("n", "<leader>flg", function()
-  require('telescope.builtin').live_grep()
-end, { noremap = true })
-
-vim.keymap.set("n", "<leader>fb", function()
-  require('telescope.builtin').buffers()
-end, { noremap = true })
-
-vim.keymap.set("n", "<leader>fh", function()
-  require('telescope.builtin').help_tags()
-end, { noremap = true })
-
+local builtin = require('telescope.builtin')
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true })
+vim.keymap.set("n", "<leader>flg", builtin.live_grep, { noremap = true })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { noremap = true })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { noremap = true })
+vim.keymap.set("n", "<leader>fgb", builtin.git_branches, { noremap = true })
+vim.keymap.set("n", "<leader>fgf", builtin.git_files, { noremap = true })
 vim.keymap.set("n", "<leader>fo", function()
-  require'telescope.builtin'.find_files({ cwd = '~/doc/org', prompt_title = 'orgmode' })
+  builtin.find_files({ cwd= '~/doc/org', prompt_title = 'orgmode' })
 end, { noremap = true })
-
-vim.keymap.set("n", "<leader>fgb", function()
-  require('telescope.builtin').git_branches()
-end, { noremap = true })
-
-vim.keymap.set("n", "<leader>fgf", function()
-  require('telescope.builtin').git_files()
-end, { noremap = true })
-
