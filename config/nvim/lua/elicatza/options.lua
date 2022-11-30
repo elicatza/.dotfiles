@@ -19,31 +19,27 @@ local options = {
   wrap = false,
   laststatus = 3,
   conceallevel = 2, -- Vim-Markdown
+  background = "dark",
+  termguicolors = true,
 
   swapfile = false,
   backup = false,
   undodir = XDG_DATA_HOME .. "/nvim/undodir",
-
   completeopt = "menu,menuone,noselect",
 }
 
-vim.g.mkdp_auto_close = 0 -- MarkdownPreview
--- vim.g.vim_markdown_folding_disabled = 1
--- vim.g.vim_markdown_conceal = 1
 vim.g.netrw_browsex_support_remote = "zathura"
 
-vim.opt.background = "dark" -- or "light" for light mode
 vim.cmd([[ colorscheme gruvbox ]])
-vim.cmd([[ highlight WinSeparator guibg=None ]])
-vim.cmd([[ set termguicolors ]])
 
 local group = vim.api.nvim_create_augroup("MyGroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "lua", "html" },
   callback = function()
-    vim.opt.tabstop = 2
-    vim.opt.softtabstop = 2
-    vim.opt.shiftwidth = 2
+    indent = 2
+    vim.opt.tabstop = indent
+    vim.opt.softtabstop = indent
+    vim.opt.shiftwidth = indent
 end, group = group })
 
 for k, v in pairs(options) do
