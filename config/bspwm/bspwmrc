@@ -30,4 +30,5 @@ bspc rule -a Sxiv desktop='^4' follow=on state=tiled
 bspc rule -a Evince desktop='^5' follow=on state=tiled
 bspc rule -a Zathura desktop='^5' follow=on state=tiled
 bspc rule -a Gimp desktop='^6' follow=on
+bspc rule -a main.py state=floating
 

@@ -3,8 +3,15 @@
 # If not running inteactively, don't do anything
 [[ $- != *i* ]] && return
 
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/: on  \1/'
+}
+
+
 alias ls='ls --color=auto'
-PS1='%F{red}%*%F{reset_color}:%F{blue}%~ $ %F{reset_color}'
+
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~%F{reset_color}% $(parse_git_branch) $ %F{reset_color}'
 # PS1='%F{red}%*%F{reset_color} %F{blue}$ %F{reset_color}'
 
 set -o vi

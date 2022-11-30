@@ -19,6 +19,7 @@ require('orgmode').setup({
   org_archive_location = '~/doc/org/archive',
   org_hide_leading_stars = true,
   org_hide_emphasis_markers = true,
+  org_highlight_latex_and_related = 'entities',
   org_capture_templates = {
     d = {
       description = 'Diary',

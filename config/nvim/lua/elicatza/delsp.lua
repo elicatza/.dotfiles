@@ -28,13 +28,3 @@ if not configs.delsp then
     },
   }
 end
-
-local custom_on_attach = function(client, bufnr)
-  print("Delsp is starting")
-end
-
-
-lspconfig['delsp'].setup {
-  capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  on_attach = custom_on_attach,
-}

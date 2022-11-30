@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>ff", function()
   require('telescope.builtin').find_files()
 end, { noremap = true })
 
-vim.keymap.set("n", "<leader>fg", function()
+vim.keymap.set("n", "<leader>flg", function()
   require('telescope.builtin').live_grep()
 end, { noremap = true })
 
@@ -50,5 +50,13 @@ end, { noremap = true })
 
 vim.keymap.set("n", "<leader>fo", function()
   require'telescope.builtin'.find_files({ cwd = '~/doc/org', prompt_title = 'orgmode' })
+end, { noremap = true })
+
+vim.keymap.set("n", "<leader>fgb", function()
+  require('telescope.builtin').git_branches()
+end, { noremap = true })
+
+vim.keymap.set("n", "<leader>fgf", function()
+  require('telescope.builtin').git_files()
 end, { noremap = true })
 
