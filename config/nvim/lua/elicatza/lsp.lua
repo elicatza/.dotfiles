@@ -1,7 +1,5 @@
 ---@diagnostic disable: undefined-global
--- local on_attach = function(client, bufnr)
 
--- end
 local opts = { noremap = true, silent = true }
 
 
