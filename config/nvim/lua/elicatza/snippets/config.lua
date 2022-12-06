@@ -15,6 +15,7 @@ ls.config.set_config {
   }
 }
 
+
 local opts = { noremap = true, silent = true }
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
   if ls.expand_or_jumpable() then
