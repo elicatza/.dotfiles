@@ -9,6 +9,7 @@ parse_git_branch() {
 
 
 alias ls='ls --color=auto'
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%F{reset_color}% $(parse_git_branch) $ %F{reset_color}'

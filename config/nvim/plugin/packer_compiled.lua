@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  neogit = {
+    loaded = true,
+    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/nvim-cmp",

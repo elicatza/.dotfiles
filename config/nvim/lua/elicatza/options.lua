@@ -30,7 +30,7 @@ local options = {
 
 vim.g.netrw_browsex_support_remote = "zathura"
 
-vim.cmd([[ colorscheme gruvbox ]])
+vim.cmd.colorscheme("gruvbox")
 
 local group = vim.api.nvim_create_augroup("MyGroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {

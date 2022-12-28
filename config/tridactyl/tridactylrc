@@ -64,6 +64,7 @@ set searchurls.de https://en.wiktionary.org/wiki/%s#German
 set searchurls.en https://en.wiktionary.org/wiki/%s#English
 set searchurls.genius https://genius.com/search?q=
 set searchurls.py https://docs.python.org/3/search.html?q=
+set searchurls.ia https://archive.org/search.php?query=
 
 " Native stuff
 

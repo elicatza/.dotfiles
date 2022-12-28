@@ -17,13 +17,13 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 # Program data location definition
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+export GOPATH="${XDG_DATA_HOME}/go"
 export LESSHISTFILE="${XDG_CACHE_HOME}/less/history"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
-export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
-export GOPATH="${XDG_DATA_HOME}/go"
 export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
+export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 
 
 # Prefrences
