@@ -9,7 +9,7 @@ parse_git_branch() {
 
 
 alias ls='ls --color=auto'
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+# alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%F{reset_color}% $(parse_git_branch) $ %F{reset_color}'
@@ -17,6 +17,7 @@ PROMPT='%F{blue}%~%F{reset_color}% $(parse_git_branch) $ %F{reset_color}'
 
 set -o vi
 alias startx='startx /home/eliza/.config/X11/xinitrc'
+alias xsc='xclip -sel clip'
 
 autoload -Uz compinit
 compinit -D

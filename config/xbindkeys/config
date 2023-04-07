@@ -1,17 +1,20 @@
-"mediacuddle brightness -d $((1388 / 15)) --alert"
+"mediacuddle brightness -d 5 --alert"
     XF86MonBrightnessDown
 
-"mediacuddle brightness -i $((1388 / 15)) --alert"
+"mediacuddle brightness -i 5 --alert"
     XF86MonBrightnessUp
 
-"mediacuddle brightness -d $((1388 / 100)) --alert"
+"mediacuddle brightness -d 1 --alert"
     Shift + XF86MonBrightnessDown
 
-"mediacuddle brightness -i $((1388 / 100)) --alert"
+"mediacuddle brightness -i 1 --alert"
     Shift + XF86MonBrightnessUp
 
 "setxkbmap "us(intl)"; xmodmap ~/.config/X11/custom-dvorak-no; mediacuddle keymap -a Dvorak"
     XF86LaunchB
+
+"notify-send 'Pomodoro started'; sleep 45m; notify-send 'Pomodoro done'"
+    XF86KbdBrightnessUp
 
 "mediacuddle playback --previous -a"
     XF86AudioPrev

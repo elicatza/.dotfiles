@@ -26,12 +26,12 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'tridactyl/vim-tridactyl' -- For trydactyl config
-  use 'elkowar/yuck.vim' -- For eww config filetype yuck
+  -- use 'tridactyl/vim-tridactyl' -- For trydactyl config
+  -- use 'elkowar/yuck.vim' -- For eww config filetype yuck
 
   --  Markup
-  use 'preservim/vim-markdown'
-  use 'iamcco/markdown-preview.nvim'
+  -- use 'preservim/vim-markdown'
+  -- use 'iamcco/markdown-preview.nvim'
   use {'nvim-orgmode/orgmode', config = function()
       require('orgmode').setup{}
     end
@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
 
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
+  -- use 'rafamadriz/friendly-snippets'
 
   -- Git
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }

@@ -1,4 +1,3 @@
-local CONF_DIR = os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -11,10 +10,19 @@ vim.api.nvim_set_keymap("v", "K", ":m '>-2<CR>gv=gv", { noremap = true})
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set("n", "<leader>n", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>n", vim.cmd.Ex)
 
-vim.api.nvim_set_keymap("n", "<leader>vrc", ":e " .. CONF_DIR .. "/nvim/init.lua<CR>", { noremap = true })
+vim.keymap.set('n', '<C-w>H', ':vert res -10<CR>', { noremap = true })
+vim.keymap.set('n', '<C-w>L', ':vert res +10<CR>', { noremap = true })
+vim.keymap.set('n', '<C-w>J', ':res -10<CR>', { noremap = true })
+vim.keymap.set('n', '<C-w>K', ':res +10<CR>', { noremap = true })
 
--- Open word under cursor in wiktionary
+vim.keymap.set("t", "æ", "<C-\\><C-n>", {noremap = true})
+-- tnoremap <Esc> <C-\><C-n>
+
+vim.api.nvim_set_keymap("n", "<leader>vrc", ":e " .. vim.fn.stdpath('config') .. "<CR>", { noremap = true })
+
+-- Open word under cursor in english wiktionary
 vim.keymap.set("n", "<leader>ss", function()
   local word = vim.api.nvim_eval("expand('<cword>')")
   os.execute("firefox https://en.wiktionary.org/wiki/" .. word)

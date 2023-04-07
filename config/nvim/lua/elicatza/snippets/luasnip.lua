@@ -41,4 +41,4 @@ vim.keymap.set({ "i", "s" }, "<c-h>", function()
   end
 end, opts)
 
-vim.keymap.set({ "n" }, "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/elicatza/snippets/snippets.lua<CR>", opts)
+vim.keymap.set({ "n" }, "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/elicatza/snippets/init.lua<CR>", opts)

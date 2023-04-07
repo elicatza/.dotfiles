@@ -24,6 +24,8 @@ export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
+export TEXMFVAR="${XDG_CACHE_HOME}/texlive/texmf-var"
+export PYTHONSTARTUP="/etc/python/pythonrc"
 
 
 # Prefrences
@@ -32,3 +34,7 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export PYTHONPATH="${HOME}/dev/coding/hades/lib/hades"
 
+# Dark theme
+export GTK_THEME="Adwaita:dark"
+export GTK2_RC_FILES="/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"
+export QT_STYLE_OVERRIDE="adwaita-dark"

@@ -1,6 +1,7 @@
 local ls = require('luasnip')
 local fmt = require('luasnip.extras.fmt').fmt
 
+
 -- Snippets for all filetypes
 ls.add_snippets("all", {
 
@@ -41,3 +42,4 @@ ls.add_snippets("all", {
     key = "all"
   }
 )
+

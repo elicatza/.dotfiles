@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -123,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
-  ["markdown-preview.nvim"] = {
-    loaded = true,
-    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
-    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   neogit = {
     loaded = true,
@@ -174,21 +164,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eliza/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-markdown"] = {
-    loaded = true,
-    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/vim-markdown",
-    url = "https://github.com/preservim/vim-markdown"
-  },
-  ["vim-tridactyl"] = {
-    loaded = true,
-    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/vim-tridactyl",
-    url = "https://github.com/tridactyl/vim-tridactyl"
-  },
-  ["yuck.vim"] = {
-    loaded = true,
-    path = "/home/eliza/.local/share/nvim/site/pack/packer/start/yuck.vim",
-    url = "https://github.com/elkowar/yuck.vim"
   }
 }
 

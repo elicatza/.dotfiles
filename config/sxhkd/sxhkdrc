@@ -12,7 +12,6 @@ ctrl + Return
 mod3 + @space
 	dmenu_run
 
-
 # dunst
 # Append new notification
 mod3 + d ; a

@@ -18,7 +18,7 @@ local options = {
   colorcolumn = "120",
   wrap = false,
   laststatus = 3,
-  conceallevel = 2, -- Vim-Markdown
+  conceallevel = 2,
   background = "dark",
   termguicolors = true,
 
@@ -26,9 +26,12 @@ local options = {
   backup = false,
   undodir = XDG_DATA_HOME .. "/nvim/undodir",
   completeopt = "menu,menuone,noselect",
+
+  foldmethod = 'manual'
 }
 
 vim.g.netrw_browsex_support_remote = "zathura"
+vim.g.netrw_banner = 0
 
 vim.cmd.colorscheme("gruvbox")
 

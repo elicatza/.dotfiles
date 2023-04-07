@@ -39,10 +39,10 @@ ls.add_snippets("python", {
       "def",
       fmt(
         [[
-          def ({}) -> {}:
+          def {}({}) -> {}:
               {}
         ]],
-        { ls.insert_node(1), ls.insert_node(2), ls.insert_node(3) }
+        { ls.insert_node(1), ls.insert_node(2), ls.insert_node(3, "None"), ls.insert_node(0, "pass") }
       )
     ),
 
@@ -56,6 +56,38 @@ ls.add_snippets("python", {
         { ls.insert_node(1) }
       )
     ),
+
+    -- Function docstring
+    ls.s("docstring", fmt(
+      [[
+      """
+      {}
+      """
+      ]], { ls.insert_node(0) }
+      )
+    ),
+
+    -- Function docstring parameters
+    ls.s("docparam", fmt(
+      [[
+      Parameters
+      ----------
+      {}
+      ]], {ls.insert_node(0, {"arg : int", "\tDescription of `arg`."})})
+    ),
+
+    -- Function docstring returns
+    ls.s("docreturn", fmt(
+      [[
+      Returns
+      -------
+      {}
+      ]], {ls.insert_node(0, {"int", "\tDescription integer."})})
+    ),
+
+
+
+
   }, {
     key = "python",
   }

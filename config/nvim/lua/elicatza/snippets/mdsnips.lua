@@ -62,8 +62,5 @@ ls.add_snippets("markdown", {
           }
         )
       ),
-
-    }, {
-      key = "markdown",
-  }
-)
+    }
+  )
