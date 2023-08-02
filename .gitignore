@@ -1,1 +1,4 @@
 config/X11/xresources
+config/zsh/.zcompdump
+config/nvim/ftplugin/
+config/nvim/plugin/packer_compiled.lua

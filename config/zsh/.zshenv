@@ -27,14 +27,25 @@ export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export TEXMFVAR="${XDG_CACHE_HOME}/texlive/texmf-var"
 export PYTHONSTARTUP="/etc/python/pythonrc"
 
-
 # Prefrences
 export EDITOR=nvim
+export PAGER=less
 export PATH="${HOME}/.local/bin:${PATH}"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export PYTHONPATH="${HOME}/dev/coding/hades/lib/hades"
+export LS_COLORS="di=34"
 
 # Dark theme
 export GTK_THEME="Adwaita:dark"
 export GTK2_RC_FILES="/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"
 export QT_STYLE_OVERRIDE="adwaita-dark"
+
+# Less theme
+export LESS_TERMCAP_mb=$'\x1b[1;34m'
+export LESS_TERMCAP_md=$'\x1b[1;34m'
+export LESS_TERMCAP_me=$'\x1b[0m'
+export LESS_TERMCAP_se=$'\x1b[0m'
+export LESS_TERMCAP_so=$'\x1b[1;44;33m'
+export LESS_TERMCAP_ue=$'\x1b[0m'
+export LESS_TERMCAP_us=$'\x1b[1;35m'
+export GROFF_NO_SGR=1

@@ -1,16 +1,5 @@
-" vim: set filetype=tridactyl
-" General Settings
-set update.lastchecktime 1656075195305
-set configversion 2.0
-
-set colors dark
-
-set allowautofocus false
-set hintautoselect true
-set hintchars aoeuhtns.rcg
-set hintdelay 100
-set smoothscroll true
-set editorcmd alacritty -e tmux new-session -s 'tridactylrc' -n config 'nvim ~/.config/tridactyl/tridactylrc'
+alias gitclone jsb -p tri.native.run("git clone --depth=1 '" + JS_ARG + "' /home/eliza/dl/repo/" + JS_ARG.split("/").slice(-1))
+alias rsssave jsb -p tri.native.run('cat >> ~/.config/newsboat/urls', JS_ARG + "\n")
 
 unbind <C-f>
 unbind d
@@ -24,7 +13,6 @@ bind L tabnext
 bind J forward
 bind K back
 
-bind --mode=ex     <C-n> ex.next_completion
 bind O composite url2args | fillcmdline open
 bind T composite url2args | fillcmdline tabopen
 
@@ -34,6 +22,19 @@ bind ? fillcmdline find -?
 bind n findnext 1
 bind N findnext -1
 bind ,<Space> nohlsearch
+
+
+set update.lastchecktime 1656075195305
+set configversion 2.0
+
+set colors dark
+set allowautofocus false
+set hintautoselect true
+set hintchars aoeuhtns.rcg
+set hintdelay 100
+set smoothscroll true
+set editorcmd alacritty -e tmux new-session -s 'tridactylrc' -n config 'nvim ~/.config/tridactyl/tridactylrc'
+set rsscmd rsssave %u
 
 bindurl youtu((\.be)|(be\.com)) f hint -J
 
@@ -67,6 +68,11 @@ set searchurls.py https://docs.python.org/3/search.html?q=
 set searchurls.ia https://archive.org/search.php?query=
 set searchurls.duden https://www.duden.de/suchen/dudenonline/
 
+set searchengine ddg
+
 " Native stuff
 
+guiset_quiet hoverlink right
+guiset_quiet tabs count
 setpref browser.autofocus false
+setpref browser.download.dir "/home/eliza/dl"

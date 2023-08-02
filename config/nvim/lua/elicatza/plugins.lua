@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use 'feline-nvim/feline.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'lewis6991/gitsigns.nvim'
+  use 'eandrju/cellular-automaton.nvim'
 
   -- use 'tridactyl/vim-tridactyl' -- For trydactyl config
   -- use 'elkowar/yuck.vim' -- For eww config filetype yuck

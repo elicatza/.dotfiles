@@ -13,7 +13,7 @@
 "setxkbmap "us(intl)"; xmodmap ~/.config/X11/custom-dvorak-no; mediacuddle keymap -a Dvorak"
     XF86LaunchB
 
-"notify-send 'Pomodoro started'; sleep 45m; notify-send 'Pomodoro done'"
+"tick-tock"
     XF86KbdBrightnessUp
 
 "mediacuddle playback --previous -a"

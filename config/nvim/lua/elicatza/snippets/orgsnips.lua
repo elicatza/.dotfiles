@@ -49,9 +49,9 @@ ls.add_snippets("org", {
         [[
         #+begin_src toml
         [{}.{}]
-        front = "{}"
-        back = "{}"
-        tags = ["{}"]
+        front = '{}'
+        back = '{}'
+        tags = ['{}']
         #+end_src{}
         ]], {
           ls.choice_node(1, {ls.text_node("basic"), ls.text_node("cloze"), ls.text_node("type"), ls.text_node("reversed"), ls.text_node("reversed_optional")}),

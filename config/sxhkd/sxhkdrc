@@ -35,7 +35,7 @@ mod3 + d ; t
 
 # browser
 mod3 + b
-    firefox
+    TZ=UTC firefox
 
 # make sxhkd reload its configuration files:
 mod3 + Escape
@@ -48,6 +48,14 @@ mod3 + m
 # change background
 mod3 + n
     sxiv -t ~/.local/share/desktop-wallpapers/*
+
+# Play musical
+mod3 + p
+    find ~/media/music/musicals/ -name "*.png" -o -name "*.jpg" | sort | xargs sxiv -t
+#
+# bspwm hotkeys
+#
+
 #
 # bspwm hotkeys
 #
@@ -105,7 +113,7 @@ mod3 + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-mod3 + {grave,Tab}
+mod3 + {Tab,grave}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history

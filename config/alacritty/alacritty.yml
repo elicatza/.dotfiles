@@ -34,10 +34,10 @@ font:
 
   italic:
     family: Fira Code
-    style: Italic
+      # style: Italic
 
   bold_italic:
     family: Fira Code
-    style: Bold Italic
+      # style: Bold Italic
 
   size: 10

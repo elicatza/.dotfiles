@@ -6,7 +6,7 @@ require('orgmode').setup_ts_grammar()
 -- Treesitter configuration (I have it in `./treesitter.lua`
 
 require('orgmode').setup({
-  org_agenda_files = { '~/doc/org/**/*' },
+  org_agenda_files = { '~/doc/org/agenda/**/*' },
   org_default_notes_file = '~/doc/org/todo.org',
   org_archive_location = '~/doc/org/archive',
   org_hide_leading_stars = true,
@@ -18,22 +18,39 @@ require('orgmode').setup({
       template = '\n** %<%Y-%m-%d> %<%A>\n*** %U\n    %?',
       target = '~/doc/org/diary.org'
     },
-    t = {
-      description = 'TODO',
-      template = '** TODO%?\n   [%Y-%m-%d]',
+
+    t = 'Task',
+    ts = {
+      description = 'schedule',
+      template = '** TODO %?\n   SCHEDULED: %t\n   %u',
+      target = '~/doc/org/agenda/calendar.org',
+      headline = 'Refile'
     },
+    td = {
+      description = 'deadline',
+      template = '** TODO %?\n   DEADLINE: %t\n   %u',
+      target = '~/doc/org/agenda/calendar.org',
+      headline = 'Refile'
+    },
+    tt = {
+      description = 'task',
+      template = '** TODO %?\n   %t\n   %u',
+      target = '~/doc/org/agenda/calendar.org',
+      headline = 'Refile'
+    },
+
     e = 'Event',
     er = {
       description = 'recurring',
-      template = '** %?\n   SCHEDULED: <%<%Y-%m-%d %H:%M +7d>>\n   %u\n',
+      template = '** %?\n   SCHEDULED: %T\n   %u',
       target = '~/doc/org/agenda/calendar.org',
-      headline = 'Tasks'
+      headline = 'Refile'
     },
     eo = {
       description = 'once',
-      template = '** %?\n   SCHEDULED: %T\n   %u\n',
+      template = '** %?\n   SCHEDULED: %T\n   %u',
       target = '~/doc/org/agenda/calendar.org',
-      headline = 'Tasks'
+      headline = 'Refile'
     }
   }
 })
