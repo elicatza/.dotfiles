@@ -46,4 +46,3 @@ bindkey "^X^E" edit-command-line
     zstyle ':completion:*' menu select  # Enable menu selection
     zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 }
-
