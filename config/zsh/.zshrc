@@ -23,6 +23,8 @@ bindkey -v  # zshzls(1)
 bindkey "^X^E" edit-command-line
 
 {
+    fpath+=("${XDG_DATA_HOME}/zsh/site-functions")
+
     ## Completion
     zmodload zsh/complist
 

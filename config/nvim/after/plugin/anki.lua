@@ -9,10 +9,8 @@ vim.api.nvim_create_autocmd("FileType", {
       function(args)
         local filename = vim.api.nvim_buf_get_name(0)
         if args["args"] == "" then
-          -- os.execute("wunderbar.py --force --file " .. filename)
           print(vim.fn.system({ "wunderbar.py", "--force", "--file", filename }))
         else
-          -- os.execute("wunderbar.py --force --file " .. filename .. " --deck " .. args["args"])
           print(vim.fn.system({ "wunderbar.py", "--force", "--file", filename, "--deck", args["args"] }))
         end
       end,
@@ -29,7 +27,6 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Color me",
   callback = function()
     local function visual_surround_pre_suf(pre, suf)
-      -- local row, col = unpack(vim.api.nvim_win_get_cursor(0))
       local _, rs, cs = unpack(vim.fn.getpos('v'))
       local _, re, ce = unpack(vim.fn.getpos('.'))
       if rs ~= re then
@@ -47,13 +44,13 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 
     vim.keymap.set("v", '<leader>af', function()
-      visual_surround_pre_suf("<span style='color: rgb(247, 168, 184);'>", "</span>" )
+      visual_surround_pre_suf("<span style=\"color: rgb(247, 168, 184);\">", "</span>" )
     end, { noremap = true, desc = "Surround highlight with anki color pink"  })
-    vim.keymap.set("v", '<leader>an', function()
-      visual_surround_pre_suf("<span style='color: rgb(169, 169, 169);'>", "</span>" )
+    vim.keymap.set("v", "<leader>an", function()
+      visual_surround_pre_suf("<span style=\"color: rgb(169, 169, 169);\">", "</span>" )
     end, { noremap = true, desc = "Surround highlight with anki color gray"  })
     vim.keymap.set("v", '<leader>am', function()
-      visual_surround_pre_suf("<span style='color: rgb(85, 205, 252);'>", "</span>" )
+      visual_surround_pre_suf("<span style=\"color: rgb(85, 205, 252);\">", "</span>" )
     end, { noremap = true, desc = "Surround highlight with anki color blue" })
     vim.keymap.set("v", '<leader>ac', function()
       visual_surround_pre_suf("{{c1::", "}}" )
