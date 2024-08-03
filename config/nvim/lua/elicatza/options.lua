@@ -1,50 +1,35 @@
-local XDG_DATA_HOME = os.getenv("XDG_DATA_HOME") or os.getenv("HOME") .. "/.local/share"
-local indent = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
+vim.opt.expandtab = true
 
-local options = {
-  tabstop = indent,
-  softtabstop = indent,
-  shiftwidth = indent,
-  expandtab = true,
-  smartindent = true,
+vim.opt.guicursor = ""
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.hlsearch = false
 
-  guicursor = "n-v-r-c-ci-sm-i-o:block,ve:ver25,cr:hor20",
-  relativenumber = true,
-  number = true,
-  hlsearch = false,
-  incsearch = true,
-  scrolloff = 8,
-  signcolumn = 'yes',
-  colorcolumn = "120",
-  wrap = false,
-  laststatus = 3,
-  conceallevel = 2,
-  background = "dark",
-  termguicolors = true,
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
+vim.opt.wrap = false
 
-  swapfile = false,
-  backup = false,
-  undodir = XDG_DATA_HOME .. "/nvim/undodir",
-  completeopt = "menu,menuone,noselect",
+vim.opt.termguicolors = true
 
-  foldmethod = 'manual'
-}
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. ".local/share/nvim/undodir"
 
-vim.g.netrw_browsex_support_remote = "zathura"
 vim.g.netrw_banner = 0
 
-vim.cmd.colorscheme("gruvbox")
-
-local group = vim.api.nvim_create_augroup("MyGroup", { clear = true })
+local indent_group = vim.api.nvim_create_augroup("Indent", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "html" },
-  callback = function()
-    indent = 2
-    vim.opt.tabstop = indent
-    vim.opt.softtabstop = indent
-    vim.opt.shiftwidth = indent
-end, group = group })
-
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+    pattern = { "lua", "html", "ocaml", "json" },
+    callback = function ()
+        local indent = 2
+        vim.opt.tabstop = indent
+        vim.opt.shiftwidth = indent
+        vim.opt.softtabstop = indent
+    end,
+    group = indent_group
+})

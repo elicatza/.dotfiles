@@ -1,5 +1,6 @@
 local ls = require('luasnip')
 local fmt = require('luasnip.extras.fmt').fmt
+
 ls.add_snippets("c", {
 
     -- New project template
@@ -11,7 +12,7 @@ ls.add_snippets("c", {
 
 
           int main(int argc, char *argv[]) {{
-            {}
+              {}
 
             return EXIT_SUCCESS;
           }}
@@ -42,7 +43,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           if ({}) {{
-            {}
+              {}
           }}
         ]],
         { ls.insert_node(1), ls.insert_node(0) }
@@ -55,7 +56,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           else if ({}) {{
-            {}
+              {}
           }}
         ]],
         { ls.insert_node(1), ls.insert_node(0) }
@@ -68,7 +69,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           else {{
-            {}
+              {}
           }}
         ]],
         { ls.insert_node(1) }
@@ -81,7 +82,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           for (i = 0; i < {}; ++i) {{
-            {}
+              {}
           }}
         ]],
         { ls.insert_node(1), ls.insert_node(2) }
@@ -94,7 +95,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           while ({}) {{
-            {}
+              {}
           }}
         ]],
         { ls.insert_node(1), ls.insert_node(2) }
@@ -107,7 +108,7 @@ ls.add_snippets("c", {
       fmt(
         [[
           do {{
-            {}
+              {}
           }} while ({})
         ]],
         { ls.insert_node(2), ls.insert_node(1) }
@@ -152,9 +153,9 @@ ls.add_snippets("c", {
       fmt(
         [[
           switch ({}) {{
-              default:
-              {}
-              break;
+              default: {{
+                  {}
+              }} break;
           }}
         ]],
         {
@@ -169,58 +170,12 @@ ls.add_snippets("c", {
       "case",
       fmt(
         [[
-          case {}:
+          case {}: {{
               {}
-              break;
+              }} break;
         ]],
         {
           ls.insert_node(1),
-          ls.insert_node(0),
-        }
-      )
-    ),
-
-    -- function
-    ls.s(
-      "func",
-      fmt(
-        [[
-          {} {}({}) {{
-            {}
-            return {};
-          }}
-        ]],
-        { ls.insert_node(1, "int"), ls.insert_node(2), ls.insert_node(3), ls.insert_node(5), ls.insert_node(4) }
-        -- TODO
-        -- Have type pick + default return value associated with function type
-        -- int -> return 0;
-        -- void -> return;
-        -- char * -> return NULL;
-      )
-    ),
-
-    -- C read from Stdin snippet
-    ls.s(
-      "read_stdin",
-      fmt(
-        [[
-          {{
-            char input_buffer[{}];
-            while (fgets(input_buffer, sizeof input_buffer, stdin) != NULL) {{
-              if (input_buffer[strlen(input_buffer) - 1] == '\n') {{
-                /* read full line */
-                {}
-
-              }} else {{
-                /* line was truncated */
-                fprintf(stderr, "Line too long. Could not read input.\n");
-                exit(EXIT_FAILURE);
-              }}
-            }}
-          }}
-        ]],
-        {
-          ls.insert_node(1, "BUFSIZ"),
           ls.insert_node(0),
         }
       )
@@ -236,19 +191,6 @@ ls.add_snippets("c", {
         { ls.insert_node(1) }
       )
     ),
-
-    -- C printf snippet
-    ls.s(
-      "fprint",
-      fmt(
-        [[
-          fprintf({}, "{}\n");
-        ]],
-        { ls.insert_node(1, "stderr"), ls.insert_node(0) }
-      )
-    ),
-
-    -- TODO malloc, calloc, realloc, free, flags
   }, {
     key = "c",
   }

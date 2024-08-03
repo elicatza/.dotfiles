@@ -35,6 +35,7 @@ set hintdelay 100
 set smoothscroll true
 set editorcmd alacritty -e tmux new-session -s 'tridactylrc' -n config 'nvim ~/.config/tridactyl/tridactylrc'
 set rsscmd rsssave %u
+set home file:///home/eliza/.local/share/homepage/index.html
 
 bindurl youtu((\.be)|(be\.com)) f hint -J
 
@@ -63,6 +64,7 @@ set searchurls.aur https://aur.archlinux.org/packages?O=0&K=
 set searchurls.pacman https://archlinux.org/packages/?q=
 set searchurls.de https://en.wiktionary.org/wiki/%s#German
 set searchurls.en https://en.wiktionary.org/wiki/%s#English
+set searchurls.la https://en.wiktionary.org/wiki/%s#Latin
 set searchurls.genius https://genius.com/search?q=
 set searchurls.py https://docs.python.org/3/search.html?q=
 set searchurls.ia https://archive.org/search.php?query=

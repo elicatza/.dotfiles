@@ -1,3 +1,11 @@
+# Makes things work!
+# export SWAYSOCK=$(sway --get-socketpath)
+# export SDL_VIDEODRIVER=wayland
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export QT_QPA_PLATFORM=wayland
+# export XDG_CURRENT_DESKTOP=sway
+# export XDG_SESSION_DESKTOP=sway
+
 # XDG user directories
 export XDG_DESKTOP_DIR="${HOME}/doc/desktop"
 export XDG_DOCUMENTS_DIR="${HOME}/doc"
@@ -7,6 +15,7 @@ export XDG_PICTURES_DIR="${HOME}/media/images"
 export XDG_PUBLICSHARE_DIR="${HOME}/doc/public"
 export XDG_TEMPLATES_DIR="${HOME}/doc/templates"
 export XDG_VIDEOS_DIR="${HOME}/media/videos"
+export XDG_CURRENT_DESKTOP="sway"
 
 # XDG base directories
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -24,13 +33,19 @@ export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
-export TEXMFVAR="${XDG_CACHE_HOME}/texlive/texmf-var"
 export PYTHONSTARTUP="/etc/python/pythonrc"
+
+# Tex
+export TEXMFVAR="${XDG_CACHE_HOME}/texmf-var"
+export TEXMFCONFIG="${XDG_CONFIG_HOME}/texmf-config"
+export TEXMFHOME="${HOME}/tmp/texmf"
+# export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man"  # man 5 manpath
+export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info"
 
 # Prefrences
 export EDITOR=nvim
 export PAGER=less
-export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:${HOME}/.local/bin:${PATH}"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export PYTHONPATH="${HOME}/dev/coding/hades/lib/hades"
 export LS_COLORS="di=34"
