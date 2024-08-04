@@ -4,7 +4,7 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
 # Remove name from list to avoid syncing directory
 # Reset / Update list command: ls {dotfiles config dir path} | awk '{printf " \"%s\"", $0}'
-sync_list=("alacritty" "dunst" "neofetch" "nvim" "tmux" "tridactyl" "xbindkeys" "zathura" "zsh" "sway" "tofi")
+sync_list=("alacritty" "dunst" "neofetch" "nvim" "tmux" "tridactyl" "xbindkeys" "zathura" "zsh" "sway" "tofi" "waybar")
 
 function link() {
     if [ -z "${3}" ]; then

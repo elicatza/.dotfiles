@@ -1,0 +1,15 @@
+/* Gruvbox */
+@define-color bg #3c3836;
+@define-color fg #EBDBB2;
+
+@define-color black #282828;
+@define-color white #A89984;
+@define-color gray  #504945;
+
+@define-color red    #CC241D;
+@define-color green  #98971A;
+@define-color yellow #D79921;
+@define-color orange #D65D0E;
+@define-color blue   #458588;
+@define-color purple #B16286;
+@define-color aqua   #689D6A;

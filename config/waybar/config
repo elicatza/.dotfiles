@@ -1,0 +1,86 @@
+{
+    "position": "top", // top|bottom|left|right
+    "height": 30,
+    "modules-left": ["sway/workspaces" ],
+    "modules-center": [],
+    "modules-right": ["network", "wireplumber", "memory", "cpu", "battery", "clock", "tray"],
+
+    "sway/workspaces": {
+        "persistent-workspaces": {
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": " ",
+            "5": "",
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "<span color='#458588'> </span>{:%H:%M}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "format-alt": "<span color='#458588'> </span> {:%Y-%m-%d %H:%M}"
+    },
+    "cpu": {
+        "format": "<span color='#D79921'> </span>{usage}%",
+        "tooltip": false,
+        "interval": 1
+    },
+    "memory": {
+        "format": "<span color='#98971A'> </span>{}%",
+        "interval": 1
+    },
+    "battery": {
+        "states": {
+            "critical": 15
+        },
+        "format": "<span color='#D65D0E'>{icon}</span> {capacity}%",
+        // "format": "<span font='16' rise='-1600' color='#D65D0E'>{icon}</span>{capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlan0",
+        // "format-wifi": " <span color='#98971A'> {bandwidthDownBytes}</span> <span color='#458588'>{bandwidthUpBytes}</span>",
+        "format-wifi": "<span color='#98971A'> {bandwidthDownBytes}</span>  <span color='#458588'>{bandwidthUpBytes}</span>",
+        "tooltip-format": "{essid}\n{ifname} via {gwaddr}",
+        "format-disconnected": " Disconnected",
+        "format-alt": "{essid}: {ipaddr}/{cidr}",
+        "width": 30,
+        "interval": 1
+    },
+    "wireplumber": {
+        "format": "<span color='#B16286'>{icon}</span> {volume}%",
+        "format-icons": ["", "", ""]
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

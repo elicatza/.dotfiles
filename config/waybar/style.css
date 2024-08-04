@@ -1,0 +1,51 @@
+@import "./themes/gruvbox.css";
+
+* {
+    font-family: "Symbols Nerd Font", "Fira Mono"; /* Fira Mono*/
+    font-size: 0.8rem;
+}
+
+window#waybar {
+    background: @bg;
+    color: @fg;
+    border-bottom: 3px solid @gray;
+}
+
+#workspaces button {
+    padding: 0 0.4rem;
+    color: @gray;
+}
+
+#workspaces button.focused {
+    background: @gray;
+    color: @orange;
+}
+
+#workspaces button.current_output {
+    color: @orange;
+}
+
+.modules-left:first-child {
+    margin-left: 1rem;
+}
+
+.modules-right * {
+    padding: 0 0.5rem;
+}
+
+@keyframes blink {
+    to {
+        background-color: @fg;
+        color: @bg;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: @red;
+    color: @bg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
