@@ -19,7 +19,7 @@ return {
         "lua",
         "make",
         "markdown",
-        "org",
+        -- "org",
         "python",
         "rust",
         "toml",

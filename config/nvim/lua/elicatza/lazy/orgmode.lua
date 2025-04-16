@@ -1,15 +1,21 @@
 return {
   'nvim-orgmode/orgmode',
   event = 'VeryLazy',
+  dependencies = {
+    "nvim-orgmode/telescope-orgmode.nvim",
+    "nvim-telescope/telescope.nvim",
+  },
   ft = { 'org' },
   config = function()
     require('orgmode').setup({
       org_agenda_files = { '~/doc/org/agenda/**/*' },
       org_default_notes_file = '~/doc/org/todo.org',
-      org_archive_location = '~/doc/org/archive',
+      org_archive_location = '~/doc/org/archive/agenda/calendar.org',
       org_hide_leading_stars = true,
       org_hide_emphasis_markers = true,
-      -- org_highlight_latex_and_related = 'entities',
+
+
+      org_highlight_latex_and_related = 'entities',
       org_capture_templates = {
         d = {
           description = 'Diary',
@@ -52,6 +58,9 @@ return {
         }
       }
     })
+
+    require("telescope").load_extension("orgmode")
+    vim.keymap.set("n", "<leader>tr", require("telescope").extensions.orgmode.refile_heading)
   end,
 }
 

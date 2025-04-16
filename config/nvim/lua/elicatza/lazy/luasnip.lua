@@ -35,6 +35,9 @@ return {
     end, opts)
 
     require("elicatza.snippets.c")
+    require("elicatza.snippets.tex")
+    require("elicatza.snippets.org")
+    require("elicatza.snippets.all")
 
   end,
 }
