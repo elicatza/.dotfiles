@@ -9,7 +9,7 @@ parse_git_branch() {
 
 setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%F{reset_color}% $(parse_git_branch) $ %F{reset_color}'
-eval $(opam env)
+# eval $(opam env)
 
 set -o vi
 alias startx='startx /home/eliza/.config/X11/xinitrc'

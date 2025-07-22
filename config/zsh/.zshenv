@@ -34,6 +34,8 @@ export XAUTHORITY="${XDG_RUNTIME_DIR}/Xauthority"
 export XCURSOR_PATH="/usr/share/icons:${XDG_DATA_HOME}/icons"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 export PYTHONSTARTUP="/etc/python/pythonrc"
+export W3M_DIR="${XDG_DATA_HOME}/w3m"
+export PARALLEL_HOME="${XDG_CONFIG_HOME}/parallel"
 
 # Tex
 export TEXMFVAR="${XDG_CACHE_HOME}/texmf-var"
@@ -49,6 +51,7 @@ export PATH="/usr/local/texlive/2023/bin/x86_64-linux:${HOME}/.local/bin:${PATH}
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export PYTHONPATH="${HOME}/dev/coding/hades/lib/hades"
 export LS_COLORS="di=34"
+export MANPAGER='nvim +Man!'
 
 # Dark theme
 export GTK_THEME="Adwaita:dark"

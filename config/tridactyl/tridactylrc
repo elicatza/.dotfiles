@@ -69,6 +69,8 @@ set searchurls.genius https://genius.com/search?q=
 set searchurls.py https://docs.python.org/3/search.html?q=
 set searchurls.ia https://archive.org/search.php?query=
 set searchurls.duden https://www.duden.de/suchen/dudenonline/
+set searchurls.min https://webmineral.com/cgi-bin/search/search.pl?sitesearch=&Terms=
+set searchurls.uio https://www.uio.no/?vrtx=searchuio&query=
 
 set searchengine ddg
 

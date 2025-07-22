@@ -9,6 +9,12 @@ local function iso_8601_date()
   return os.date("%Y-%m-%d")
 end
 
+local function date_iso8601_full()
+  return os.date("!%Y-%m-%dT%TZ")
+end
+
+
+
 local function iso_8601_time()
   return os.date("%H:%M")
 end
@@ -49,6 +55,12 @@ SOFTWARE.
     "date",
       fmt([[{}]], {
         ls.function_node(iso_8601_date),
+      })
+    ),
+    ls.s(
+    "date_iso8601_full",
+      fmt([[{}]], {
+        ls.function_node(date_iso8601_full),
       })
     ),
     ls.s(

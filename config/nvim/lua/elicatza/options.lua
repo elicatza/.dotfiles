@@ -9,23 +9,20 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch = false
 
+vim.opt.list = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.wrap = false
-
+vim.opt.laststatus = 3
+vim.opt.foldenable = false
 vim.opt.termguicolors = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. ".local/share/nvim/undodir"
 
 vim.opt.completeopt = "menuone,noselect,popup"
 
-vim.g.netrw_banner = 0
-
-
-local indent_group = vim.api.nvim_create_augroup("Indent", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "html", "ocaml", "json" },
     callback = function ()
@@ -34,7 +31,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt.shiftwidth = indent
         vim.opt.softtabstop = indent
     end,
-    group = indent_group
 })
 
 -- Command Anki that does it real good
@@ -98,21 +94,21 @@ vim.lsp.config['texlab'] = {
   cmd = { 'texlab' },
   filetypes = { 'tex' },
 }
+vim.lsp.config['lua_ls'] = {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
+}
 vim.lsp.enable('texlab')
+vim.lsp.enable('lua_ls')
+
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-    if client:supports_method('textDocument/implementation') then
-      -- Create a keymap for vim.lsp.buf.implementation ...
-    end
+    local keyopts = { buffer = true }
 
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
-    end
-
-    local keyopts = { noremap = true, buffer = true }
     if client:supports_method('textDocument/hover') then
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, keyopts)
     end
@@ -124,6 +120,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
     if client:supports_method('textDocument/reference') then
       vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, keyopts)
+    end
+    if client:supports_method('textDocument/signatureHelp') then
+      vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, keyopts)
     end
     if client:supports_method('textDocument/signatureHelp') then
       vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, keyopts)

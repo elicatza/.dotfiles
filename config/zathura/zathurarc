@@ -43,3 +43,6 @@ set recolor                     "true"
 
 set synctex true
 set synctex-editor-command "nvim --headless -c \"VimtexInverseSearch %{line} '%{input}'\""
+
+set highlight-color "rgba(85, 205, 252, 0.5)"
+set highlight-active-color "rgba(247, 168, 192, 0.5)"

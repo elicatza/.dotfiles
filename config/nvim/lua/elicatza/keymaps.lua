@@ -4,9 +4,6 @@ vim.g.maplocalleader = " "
 vim.keymap.set("i", "æ", "<Esc>")
 vim.keymap.set('t', 'æ', '<C-\\><C-n>')
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>n", ":Oil<CR>")
@@ -24,8 +21,10 @@ vim.keymap.set('n', '<leader>qb', '<cmd>make<cr>',   { silent = true, noremap = 
 vim.keymap.set('n', '<leader>qo', '<cmd>copen<cr>',  { silent = true, noremap = true, desc = 'open quickfixlist' } )
 vim.keymap.set('n', '<leader>qc', '<cmd>cclose<cr>', { silent = true, noremap = true, desc = 'close quickfixlist' } )
 
+vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.jump({ count =  1, float = true }) end)
 
--- Open word under cursor in wiktionary
+-- Open word under cursor in dictionary
 vim.keymap.set("n", "<leader>ss", function()
   local spelllang = vim.api.nvim_get_option_value("spelllang", { scope = "local" })
   local word = vim.api.nvim_eval("expand('<cword>')")

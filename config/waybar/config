@@ -51,12 +51,27 @@
     "battery#bat2": {
         "bat": "BAT2"
     },
+    "mpris": {
+      "format": "<span color='#689D6A'>{player_icon}</span> {title} - {album}",
+      "format-paused": "<span color='#689D6A'>{status_icon}</span> {title} - {album}",
+      "player-icons": {
+        "default": "",
+        "mpv": "🎵"
+      },
+      "status-icons": {
+        "paused": ""
+      },
+      "ignored-players": ["firefox"]
+    },
+
     "network": {
         // "interface": "wlan0",
         // "format-wifi": " <span color='#98971A'> {bandwidthDownBytes}</span> <span color='#458588'>{bandwidthUpBytes}</span>",
         "format-wifi": "<span color='#98971A'> {bandwidthDownBytes}</span>  <span color='#458588'>{bandwidthUpBytes}</span>",
+        "format-ethernet": " <span color='#98971A'> {bandwidthDownBytes}</span>  <span color='#458588'>{bandwidthUpBytes}</span>",
         "tooltip-format": "{essid}\n{ifname} via {gwaddr}",
         "format-disconnected": " Disconnected",
+        "tooltip-format-disconnected": "No network",
         "format-alt": "{essid}: {ipaddr}/{cidr}",
         "width": 30,
         "interval": 1

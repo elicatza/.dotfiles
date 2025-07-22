@@ -23,7 +23,7 @@ set $menu tofi-run --require-match=false | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/eliza/.local/share/desktop-wallpapers/enby-curves.jpg fill
+output * bg /home/eliza/.local/share/desktop-wallpapers/stratigrafisk-tabell.jpg fill
 #
 # Example configuration:
 #
